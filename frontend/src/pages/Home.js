@@ -21,7 +21,7 @@ const Home = () => {
 =            Popular deals section            =
 ============================================--> */}
 
-<LatestProjects />
+            <LatestProjects />
 
 
 
@@ -29,7 +29,7 @@ const Home = () => {
 =            All Category Section            =
 ===========================================--> */}
 
-<Categories />
+            <Categories />
 
 
 {/* <!--====================================
@@ -58,8 +58,7 @@ const Home = () => {
 {/* <!--============================
 =            Footer            =
 =============================--> */}
-
-     <Footer/>
+            <Footer/>
  </div>
   )
 }
