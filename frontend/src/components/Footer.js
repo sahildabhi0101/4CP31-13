@@ -80,10 +80,10 @@ const Footer = () => {
                     <div className="col-lg-6">
                         {/* <!-- Social Icons --> */}
                         <ul className="social-media-icons text-center text-lg-right">
-                        <li><a className="fa fa-facebook" href="https://www.facebook.com/themefisher"></a></li>
-                        <li><a className="fa fa-twitter" href="https://www.twitter.com/themefisher"></a></li>
-                        <li><a className="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher"></a></li>
-                        <li><a className="fa fa-github-alt" href="https://www.github.com/themefisher"></a></li>
+                        <li><a className="fa fa-facebook" href="https://www.facebook.com">facebook</a></li>
+                        <li><a className="fa fa-twitter" href="https://www.twitter.com/">twitter</a></li>
+                        <li><a className="fa fa-pinterest-p" href="https://www.pinterest.com/">pinterest</a></li>
+                        <li><a className="fa fa-github-alt" href="https://www.github.com/">github</a></li>
                         </ul>
                     </div>
                     </div>
