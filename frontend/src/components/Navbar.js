@@ -18,7 +18,7 @@ const Navbar = () => {
 					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul className="navbar-nav ml-auto main-nav ">
 							<li className="nav-item active">
-								<a className="nav-link" href="index.html">Home</a>
+								<a className="nav-link" href="/">Home</a>
 							</li>
 							<li className="nav-item dropdown dropdown-slide @@dashboard">
 								<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i className="fa fa-angle-down"></i></span>
@@ -43,14 +43,14 @@ const Navbar = () => {
 								</ul>
 							</li>
 							<li className="nav-item dropdown dropdown-slide @@pages">
-								<a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a className="nav-link dropdown-toggle" href="/#" data-toggle="dropdown"  aria-expanded="false">
 									Pages <span><i className="fa fa-angle-down"></i></span>
 								</a>
 								{/* <!-- Dropdown list --> */}
 								<ul className="dropdown-menu">
 									<li><a className="dropdown-item @@about" href="about-us.html">About Us</a></li>
 									<li><a className="dropdown-item @@contact" href="contact-us.html">Contact Us</a></li>
-									<li><a className="dropdown-item @@profile" href="user-profile.html">User Profile</a></li>
+									<li><a className="dropdown-item @@profile" href="user-profile">User Profile</a></li>
 									<li><a className="dropdown-item @@404" href="404.html">404 Page</a></li>
 									<li><a className="dropdown-item @@package" href="package.html">Package</a></li>
 									<li><a className="dropdown-item @@singlePage" href="single.html">Single Page</a></li>
@@ -61,7 +61,7 @@ const Navbar = () => {
 								</ul>
 							</li>
 							<li className="nav-item dropdown dropdown-slide @@listing">
-								<a className="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<a className="nav-link dropdown-toggle" href="/#" data-toggle="dropdown"  aria-expanded="false">
 									Listing <span><i className="fa fa-angle-down"></i></span>
 								</a>
 								{/* <!-- Dropdown list --> */}
@@ -82,7 +82,7 @@ const Navbar = () => {
 						</ul>
 						<ul className="navbar-nav ml-auto mt-10">
 							<li className="nav-item">
-								<a className="nav-link login-button" href="login.html">Login</a>
+								<a className="nav-link login-button" href="login">Login</a>
 							</li>
 							<li className="nav-item">
 								<a className="nav-link text-white add-button" href="ad-listing.html"><i className="fa fa-plus-circle"></i> Add Listing</a>
