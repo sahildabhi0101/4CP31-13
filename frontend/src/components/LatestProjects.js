@@ -16,28 +16,28 @@ const config = {
 
 const products = [
     {
-        img: './assets/images/products/products-1.jpg',
+        img: './images/products/products-1.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './assets/images/products/products-2.jpg',
+        img: './images/products/products-2.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './assets/images/products/products-3.jpg',
+        img: './images/products/products-3.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './assets/images/products/products-4.jpg',
+        img: './images/products/products-4.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
