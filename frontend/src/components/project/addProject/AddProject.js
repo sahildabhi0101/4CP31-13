@@ -2,21 +2,22 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
-import {AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
+import { AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
 import "./addProject.css";
 import axios from 'axios';
 
 export default function AddProject() {
   const navigate = useNavigate();
   const [token, setToken] = useState("");
-  const [initialValues,setInitialValues] = useState({
+  const [initialValues, setInitialValues] = useState({
     project_title: '',
-    project_desc: '',})
+    project_desc: '',
+  })
   const [tag, setTags] = React.useState([]);
   const [photo, setPhoto] = React.useState("");
-  
+
   const data = new FormData();
-  
+
   useEffect(() => {
     setToken(JSON.parse(localStorage.getItem("Token")))
     console.log("token-", token);
@@ -24,33 +25,33 @@ export default function AddProject() {
   const handleInput = (e) => {
     const { name, value } = e.target;
     setInitialValues((preval) => {
-        return {
-            ...preval,
-            [name]: value
-        }
+      return {
+        ...preval,
+        [name]: value
+      }
     })
-}
+  }
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     console.log(initialValues);
     console.log(tag);
     console.log(photo)
-  
+
     data.append('file', photo);
     console.log(data);
     data.append('upload_preset', "4cp31_79")
-    await axios.post(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`,data)
-    .then((res) =>
-    {
-      console.log(res);
-    })
+    await axios.post(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`, data)
+      .then((res) => {
+        console.log(res);
+      })
     /*const res = await fetch(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`, {
       method: 'POST',
       body: data
     })
     const file = await res.json();
     */
-   //console.log("file is ",file);
+    //console.log("file is ",file);
     const body = {
       project_title: initialValues.project_title,
       project_desc: initialValues.project_desc,
@@ -93,47 +94,47 @@ export default function AddProject() {
         src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
         alt=""
       />
-          <form>
-            <div className="">
-              <div className="">
-                <label htmlFor="fileInput">
-                  <i className="writeIcon fas fa-plus"></i>
-                </label>
-                <input type="file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
-                <input
-                  name="project_title"
-                  className="writeInput"
-                  placeholder="Title"
-                  type="text"
-                  autoFocus={true}
-                  onChange={handleInput}
-                  value= {initialValues.project_title}
-                />
-              </div>
-              <div className="">
-                <textarea
-                  name="project_desc"
-                  className="writeInput writeText"
-                  placeholder="Tell your story..."
-                  type="text"
-                  onChange={handleInput}
-                  value= {initialValues.project_desc}
-                />
-              </div>
-              <div style={{
-                display: 'block', width: "700", paddingLeft: "30"
-              }}>
-                <h4>Enter Tags of your project</h4>
-                <TagInput
-                  inputProps={{ placeholder: 'Add Names..' }}
-                  onChange={data => { setTags(data) }}
-                  values={tag}
-                />
-              </div>
-              <button type="submit" onClick={onSubmit} className="btn btn-primary font-weight-bold mt-3">Add Project</button>
-              
-            </div>
-          </form>
+      <form>
+        <div className="">
+          <div className="">
+            <label htmlFor="fileInput">
+              <i className="writeIcon fas fa-plus"></i>
+            </label>
+            <input type="file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
+            <input
+              name="project_title"
+              className="writeInput"
+              placeholder="Title"
+              type="text"
+              autoFocus={true}
+              onChange={handleInput}
+              value={initialValues.project_title}
+            />
+          </div>
+          <div className="">
+            <textarea
+              name="project_desc"
+              className="writeInput writeText"
+              placeholder="Tell your story..."
+              type="text"
+              onChange={handleInput}
+              value={initialValues.project_desc}
+            />
+          </div>
+          <div style={{
+            display: 'block', width: "700", paddingLeft: "30"
+          }}>
+            <h4>Enter Tags of your project</h4>
+            <TagInput
+              inputProps={{ placeholder: 'Add Names..' }}
+              onChange={data => { setTags(data) }}
+              values={tag}
+            />
+          </div>
+          <button type="submit" onClick={onSubmit} className="btn btn-primary font-weight-bold mt-3">Add Project</button>
+
+        </div>
+      </form>
     </div>
   );
 }
