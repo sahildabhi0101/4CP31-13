@@ -24,7 +24,6 @@ exports.addProject = async (req, res) => {
     investor_ids,
   } = req.body;
 
-
   // create project project object and save it
   const project = new Project({
     project_title,
@@ -38,13 +37,8 @@ exports.addProject = async (req, res) => {
   try {
     const savedProject = await project.save();
 
-    return res.status(200).json({ message: "Project added", savedProject });
-    // if (
-    //   addInvestorsFun(savedProject._id, investor_ids) &&
-    //   addStudentsFun(savedProject._id, student_ids)
-    // )
-    //   return res.status(200).json({ message: "Project added", savedProject });
-    // else throw "Errow While Saving data";
+    return res.status(200).json({ message: "Project added in student's personal section", savedProject });
+    
     throw "Errow While Saving data";
   } catch (err) {
     res.status(400).send(err);
@@ -77,7 +71,7 @@ const addInvestorsFun = async (project_id, investor_ids) => {
 };
 
 // This is a utility function that helps to map student id with project id and save to database
-const addStudentsFun = async (project_id, student_id) => {
+const addStudentproject = async (project_id, student_id) => {
   try {
     const data = new StudentProject({
       project_id,
@@ -133,7 +127,7 @@ exports.removeInvestor = async (req, res) => {
 // @desc     Add Student in Project
 // @access   Private
 // This add student api for adding student in project its add student who is currently loggedin
-exports.addStudent = async (req, res) => {
+exports.studentProject = async (req, res) => {
   // console.log("req.body", req.body);
 
   const { project_id } = req.body;
@@ -141,9 +135,9 @@ exports.addStudent = async (req, res) => {
   // if addStudentFun return true then Student is added else some error is found
   const student_id = req.user._id;
 
-  const result = await addStudentsFun(project_id, student_id);
+  const result = await addStudentproject(project_id, student_id);
   if (!result.isError) {
-    res.status(200).send({ message: "Student added Successfully" });
+    res.status(200).send({ message: "Project add in student project Successfully" });
   } else {
     res.status(500).send({ error: result.errorMsg });
   }
