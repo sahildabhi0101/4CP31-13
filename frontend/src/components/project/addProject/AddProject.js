@@ -14,7 +14,9 @@ export default function AddProject() {
     project_desc: '',})
   const [tag, setTags] = React.useState([]);
   const [photo, setPhoto] = React.useState("");
-
+  
+  const data = new FormData();
+  
   useEffect(() => {
     setToken(JSON.parse(localStorage.getItem("Token")))
     console.log("token-", token);
@@ -33,9 +35,7 @@ export default function AddProject() {
     console.log(initialValues);
     console.log(tag);
     console.log(photo)
-
-    const data = new FormData();
-
+  
     data.append('file', photo);
     console.log(data);
     data.append('upload_preset', "4cp31_79")
