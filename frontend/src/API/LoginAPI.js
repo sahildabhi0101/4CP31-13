@@ -12,7 +12,6 @@ export const LoginAPI = async (body, loginAs) => {
         return data;
     }
     catch (err) {
-        console.log({... err.response});
         console.log("Error is: " + err.response);
     }
 }

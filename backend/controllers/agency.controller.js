@@ -28,7 +28,6 @@ exports.agencyRegister = async (req, res) => {
       mobile_no,
       email,
       address,
-      problem_id,
       password,
     });
 

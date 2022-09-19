@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import {Link} from 'react-router-dom'
 import { useNavigate } from "react-router-dom";
 import { LoginAPI } from "../API/LoginAPI";
 
@@ -25,9 +26,9 @@ const Login = () => {
     }
     const onSubmit = async (e) => {
         e.preventDefault();
-        console.log(select)
-        console.log(input.email);
-        console.log(input.password);
+        // console.log(select)
+        // console.log(input.email);
+        // console.log(input.password);
 
         // send data to API key
         const body = {
@@ -38,6 +39,7 @@ const Login = () => {
         const response = await LoginAPI(body,select);
 
         console.log(response);
+        localStorage.setItem("Token",JSON.stringify(response.token));
         localStorage.setItem("NameOfUser", JSON.stringify(response.detail.name));
 
         // check response status and show message accoringly
@@ -74,7 +76,7 @@ const Login = () => {
                                         </div>
                                         <button type="submit" className="btn btn-primary font-weight-bold mt-3" onClick={onSubmit}>Log in</button>
                                         <a className="mt-3 d-block text-primary" href="#!">Forget Password?</a>
-                                        <a className="mt-3 d-inline-block text-primary" href="register">Register Now</a>
+                                        <Link className="mt-3 d-inline-block text-primary" to="/register">Register Now</Link>
                                     </fieldset>
                                 </form>
                             </div>

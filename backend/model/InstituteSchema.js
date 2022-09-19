@@ -25,7 +25,7 @@ const instituteSchema = new mongoose.Schema(
     },
     registration_no: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     success_story_id: [
