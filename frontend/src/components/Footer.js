@@ -55,7 +55,7 @@ const Footer = () => {
                         <div className="mobile d-flex  align-items-center">
                             <a href="index.html">
                             {/* <!-- Icon --> */}
-                            <img src="images/footer/phone-icon.png" alt="mobile-icon"/>
+                            <img src="" alt="mobile-icon"/>
                             </a>
                             <p className="mb-0">Get the Dealsy Mobile App and Save more</p>
                         </div>

@@ -18,6 +18,8 @@ export const MainRoute = () => {
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="display-projects" element={<DisplayAllProject/>}/>
                 <Route path="project-details" element={<ProjectDetails/>}/>
+                {/* <Route path="user_profile" element={<UserProfile/>} />
+                <Route path="project_details" element={<ProjectDetails/>}/> */}
             </Routes>
         </>
     )
