@@ -13,31 +13,30 @@ const config = {
     slidesToScroll: 1
   };
 
-
 const products = [
     {
-        img: './images/products/products-1.jpg',
+        img: '../images/products/products-1.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './images/products/products-2.jpg',
+        img: '../images/products/products-2.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './images/products/products-3.jpg',
+        img: '../images/products/products-3.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: './images/products/products-4.jpg',
+        img: '../images/products/products-4.jpg',
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
@@ -64,7 +63,7 @@ const LatestProjects = () => {
 						{/* <!-- product card --> */}
                         <Slider {...config}>
                             {products.map((x, i) => {
-                            return (<div key="{i}">
+                            return (<div key={i}>
                                 <div className="product-item bg-light ml-2 mr-2">
                                     <div className="card">
                                         <div className="thumb-content">
