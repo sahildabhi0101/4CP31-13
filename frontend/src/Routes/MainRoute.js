@@ -9,6 +9,7 @@ import AddProject from "../components/project/addProject/AddProject";
 import Home from "../pages/Home";
 import ProjectDetails from "../pages/ProjectDetails";
 import DisplayAllProject from "../pages/DisplayAllProject";
+import { DisplayAllProjects } from "../components/project/displayProject/DisplayAllProjects"
 export const MainRoute = () => {
     return(
         <>
@@ -22,7 +23,8 @@ export const MainRoute = () => {
                 <Route path="/addproject" element={<AddProject />}></Route>
 
                 <Route path="user-profile" element={<UserProfile/>} />
-                <Route path="display-projects" element={<DisplayAllProject/>}/>
+                <Route path="/display-project" element={<DisplayAllProject/>}/>
+                <Route path="/display-projects" element={<DisplayAllProjects/>}/>
                 <Route path="project-details" element={<ProjectDetails/>}/>
             </Routes>
         </>
