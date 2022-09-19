@@ -9,6 +9,9 @@ import AddProject from "../components/project/addProject/AddProject";
 import Home from "../pages/Home";
 import ProjectDetails from "../pages/ProjectDetails";
 import DisplayAllProject from "../pages/DisplayAllProject";
+import Aboutus from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
+
 export const MainRoute = () => {
     return(
         <>
@@ -24,6 +27,8 @@ export const MainRoute = () => {
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="display-projects" element={<DisplayAllProject/>}/>
                 <Route path="project-details" element={<ProjectDetails/>}/>
+                <Route path="about-us" element={<Aboutus/>}/>
+                <Route path="contact-us" element={<ContactUs/>}/>
             </Routes>
         </>
     )
