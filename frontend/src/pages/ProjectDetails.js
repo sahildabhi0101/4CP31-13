@@ -1,9 +1,12 @@
-import React from 'react'
+
+import React,{useEffect, useState} from 'react'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import product1 from '../images/products/products-1.jpg'
 
 const ProjectDetails = () => {
+	const [category,setCategory] = useState('product_details');
+	useEffect(()=>{},[category])
   return (
     <>
       <Navbar/>
@@ -49,21 +52,23 @@ const ProjectDetails = () => {
 
 					<div className="content mt-5 pt-5">
 						<ul className="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
-							<li className="nav-item">
-								<a className="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+							<li className="nav-item" onClick={()=>setCategory('product_details')}>
+								<a className="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
 								 aria-selected="true">Product Details</a>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item" onClick={()=>setCategory('specifications')}>
 								<a className="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
 								 aria-selected="false">Specifications</a>
 							</li>
-							<li className="nav-item">
+							<li className="nav-item" onClick={()=>setCategory('reviews')}>
 								<a className="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact"
 								 aria-selected="false">Reviews</a>
 							</li>
 						</ul>
 						<div className="tab-content" id="pills-tabContent">
-							<div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+							{
+								category==='product_details' && 
+								(<div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 								<h3 className="tab-title">Product Description</h3>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia laudantium beatae quod perspiciatis, neque
 									dolores eos rerum, ipsa iste cum culpa numquam amet provident eveniet pariatur, sunt repellendus quas
@@ -82,8 +87,11 @@ const ProjectDetails = () => {
 									delectus sapiente molestiae sit accusantium a libero, eligendi vero eius laboriosam minus. Nemo quibusdam
 									nesciunt doloribus repellendus expedita necessitatibus velit vero?</p>
 
-							</div>
-							<div className="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+								</div>)
+							}
+							{
+								category==='specifications' && 
+								(<div className="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 								<h3 className="tab-title">Product Specifications</h3>
 								<table className="table table-bordered product-table">
 									<tbody>
@@ -121,8 +129,10 @@ const ProjectDetails = () => {
 										</tr>
 									</tbody>
 								</table>
-							</div>
-							<div className="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+							</div>)
+							}
+							{
+								category==='reviews' && (<div className="tab-pane fade active show" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 								<h3 className="tab-title">Product Review</h3>
 								<div className="product-review">
 									<div className="media">
@@ -187,7 +197,11 @@ const ProjectDetails = () => {
 										</div>
 									</div>
 								</div>
-							</div>
+							</div>)
+							}
+							
+							
+							
 						</div>
 					</div>
 				</div>

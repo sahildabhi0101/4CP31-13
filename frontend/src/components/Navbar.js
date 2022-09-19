@@ -69,8 +69,8 @@ const Navbar = () => {
 											</a>
 											{/* <!-- Dropdown list --> */}
 											<ul className="dropdown-menu">
-												<li><a className="dropdown-item @@about" href="about-us.html">About Us</a></li>
-												<li><a className="dropdown-item @@contact" href="contact-us.html">Contact Us</a></li>
+												<li><a className="dropdown-item @@about" href="about-us">About Us</a></li>
+												<li><a className="dropdown-item @@contact" href="contact-us">Contact Us</a></li>
 												<li><a className="dropdown-item @@profile" href="user-profile">User Profile</a></li>
 												<li><a className="dropdown-item @@404" href="404.html">404 Page</a></li>
 												<li><a className="dropdown-item @@package" href="package.html">Package</a></li>
@@ -104,18 +104,18 @@ const Navbar = () => {
 
 
 									{isLoggedin ? (
-										<Dropdown>
+										<Dropdown >
 											<Dropdown.Toggle variant="" id="dropdown-basic">
 												<Avatar textSizeRatio={2} size="40" round={true} name={JSON.parse(localStorage.getItem("NameOfUser"))} />
 
 											</Dropdown.Toggle>
 											{whoisLoggedin.user === "student" ? (
 												// for student
-												<Dropdown.Menu >
-													<Dropdown.Item style={{ paddingLeft: "27px" }}>
+												<Dropdown.Menu className="dropdown-menu">
+													<Dropdown.Item >
 														<Avatar textSizeRatio={2} size="100" round={true} name={JSON.parse(localStorage.getItem("NameOfUser"))} />
 													</Dropdown.Item>
-													<Dropdown.Item style={{ marginLeft: "35px" }}>
+													<Dropdown.Item className="dropdown-item" style={{ alignContent:'center' }}>
 														{JSON.parse(localStorage.getItem("NameOfUser"))}
 													</Dropdown.Item>
 													<Dropdown.Item href="/">Home</Dropdown.Item>
