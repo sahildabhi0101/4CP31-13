@@ -3,7 +3,7 @@ const {
   addProject,
   addInvestors,
   removeInvestor,
-  addStudent,
+  studentProject,
   removeStudent,
   displayProject,
   addCollaborator,
@@ -23,7 +23,12 @@ const router = express();
 router.get("/all", allProjects)
 router.get("/filterdata", allfilterprojects)
 router.get("/projectbypage", allProjectsByPage)
-router.post("/add", addProject);
+
+// student na personal peoject added
+router.post("/addproject", addProject);
+// student project table ma add thase student -> multiple project
+router.post("/studentproject", checkAuthStudent, studentProject);
+
 
 // Project Investor
 router.post("/addinvestor", addInvestors);
@@ -31,7 +36,7 @@ router.post("/removeInvestor", removeInvestor);
 router.post("/displayProject", displayProject);
 
 // Project Student
-router.post("/addstudent", checkAuthStudent, addStudent);
+
 router.post("/removestudent", removeStudent);
 router.post("/addCollaborator", checkAuthStudent, addCollaborator)
 router.get("/allstudentprojects", checkAuthStudent, allStudentProjects)

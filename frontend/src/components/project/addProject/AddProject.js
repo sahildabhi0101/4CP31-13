@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect} from "react";
 import { TagInput } from 'evergreen-ui'
 import {AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
 import "./addProject.css";
@@ -15,7 +15,6 @@ export default function AddProject() {
   const [tag, setTags] = React.useState([]);
   const [photo, setPhoto] = React.useState("");
   
-  const data = new FormData();
   
   useEffect(() => {
     setToken(JSON.parse(localStorage.getItem("Token")))
@@ -31,59 +30,53 @@ export default function AddProject() {
     })
 }
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     console.log(initialValues);
     console.log(tag);
     console.log(photo)
   
+    const data = new FormData();
     data.append('file', photo);
-    console.log(data);
+    // console.log(data);
     data.append('upload_preset', "4cp31_79")
-    await axios.post(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`,data)
-    .then((res) =>
-    {
-      console.log(res);
-    })
-    /*const res = await fetch(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`, {
+    const res = await fetch(`https://api.cloudinary.com/v1_1/dsrxkouht/image/upload`, {
       method: 'POST',
       body: data
     })
     const file = await res.json();
-    */
+    
    //console.log("file is ",file);
     const body = {
       project_title: initialValues.project_title,
       project_desc: initialValues.project_desc,
-      // image: {
-      //   url: file.url,
-      //   public_id: file.public_id
-      // },
+      image: {
+        url: file.url,
+        public_id: file.public_id
+      },
       tags: tag,
     };
     console.log('body ', body);
-    // const projectAdded = await AddProjectAPI(body, values.select);
-    // const projectAdded = await axios.post(`/api/project/add`, body)
+    const projectAdded = await AddProjectAPI(body);
+   
+    console.log(projectAdded)
+    const project_id = projectAdded.savedProject._id;
 
+    console.log("token:---", token);
+    console.log("project_id:---", project_id);
+    const studentProjectAdded = await AddStudentProjectAPI({
+      project_id,
+      token,
+    });
 
-    // console.log(projectAdded)
-    // const project_id = projectAdded.data.savedProject._id;
+    console.log(studentProjectAdded);
 
-    // console.log("token:---", token);
-    // console.log("project_id:---", project_id);
-    // const studentProjectAdded = await AddStudentProjectAPI({
-    //   project_id,
-    //   token,
-    // });
-
-    // console.log(projectAdded);
-    // console.log(studentProjectAdded);
-
-    // if (!projectAdded || !studentProjectAdded) {
-    //   alert("Something went wrong!");
-    // } else {
-    //   // To redirect writtern blog
-    //   // navigate(`/project/${project_id}`);
-    // }
+    if (!projectAdded || !studentProjectAdded) {
+      alert("Something went wrong!");
+    } else {
+      // To redirect writtern blog
+      // navigate(`/project/${project_id}`);
+    }
   };
 
   return (
