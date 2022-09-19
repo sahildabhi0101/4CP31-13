@@ -6,6 +6,7 @@ import UserProfile from "../pages/UserProfile";
 
 import Home from "../pages/Home";
 import ProjectDetails from "../pages/ProjectDetails";
+import DisplayAllProject from "../pages/DisplayAllProject";
 export const MainRoute = () => {
     return(
         <>
@@ -15,6 +16,7 @@ export const MainRoute = () => {
                 <Route path="login" element={<Login/>} />
                 <Route path="register" element={<Register/>} />
                 <Route path="user-profile" element={<UserProfile/>} />
+                <Route path="display-projects" element={<DisplayAllProject/>}/>
                 <Route path="project-details" element={<ProjectDetails/>}/>
             </Routes>
         </>

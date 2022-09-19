@@ -54,7 +54,7 @@ const Navbar = () => {
 									<li><a className="dropdown-item @@404" href="404.html">404 Page</a></li>
 									<li><a className="dropdown-item @@package" href="package.html">Package</a></li>
 									<li><a className="dropdown-item @@singlePage" href="project-details">ProjectDetails</a></li>
-									<li><a className="dropdown-item @@store" href="store.html">Store Single</a></li>
+									<li><a className="dropdown-item @@store" href="display-projects">Display all Projects</a></li>
 									<li><a className="dropdown-item @@blog" href="blog.html">Blog</a></li>
 									<li><a className="dropdown-item @@singleBlog" href="single-blog.html">Blog Details</a></li>
 									<li><a className="dropdown-item @@terms" href="terms-condition.html">Terms &amp; Conditions</a></li>
