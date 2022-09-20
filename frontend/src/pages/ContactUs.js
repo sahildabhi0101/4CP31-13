@@ -6,6 +6,15 @@ const ContactUs = () => {
     return (
         <>        
             <Navbar/>
+            <section class="page-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <h3>Contact Us</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
                 <section className="section">
                     <div className="container">
                         <div className="row">
@@ -24,18 +33,16 @@ const ContactUs = () => {
                                                     <div className="col-lg-6 py-2">
                                                         <input type="text" placeholder="Name *" className="form-control" required/>
                                                     </div>
-                                                    <div className="col-lg-6 pt-2">
+                                                    <div className="col-lg-6 pt-1">
                                                         <input type="email" placeholder="Email *" className="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <select name="" id="" className="form-control w-100">
-                                                <option value="1">Select Category</option>
-                                                <option value="1">Laptop</option>
-                                                <option value="1">iPhone</option>
-                                                <option value="1">Monitor</option>
-                                                <option value="1">I need</option>
-                                            </select>
+                                            <div className="row">
+                                                    <div className="col-lg-12 py-1">
+                                                        <input type="text" placeholder="Subject *" className="form-control" required/>
+                                                    </div>
+                                                </div>
                                             <textarea name="message" id=""  placeholder="Message *" className="border w-100 p-3 mt-3 mt-lg-4"></textarea>
                                             <div className="btn-grounp">
                                                 <button type="submit" className="btn btn-primary mt-2 float-right">SUBMIT</button>

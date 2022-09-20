@@ -44,7 +44,7 @@ export const MyProjects = () => {
                                     project_desc={project.project_id.project_desc}
                                     // students={project.student_id}    //remaining to make api
                                     tags={project.project_id.tags}
-                                    image={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
+                                    img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
                                     user={'student'}
                                     onDelete={onDelete}
                                 /> : ''

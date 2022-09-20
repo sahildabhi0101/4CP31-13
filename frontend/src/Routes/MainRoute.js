@@ -10,7 +10,7 @@ import UserProfile from "../pages/UserProfile";
 import AddProject from "../components/project/addProject/AddProject";
 import { DisplayAllProjects } from "../components/project/displayProject/DisplayAllProjects"
 import { MyProjects } from "../components/project/displayProject/MyProjects";
-
+import SingleProject from "../components/project/singleProject/SingleProject";
 
 
 import Home from "../pages/Home";
@@ -43,6 +43,8 @@ export const MainRoute = () => {
 
                 <Route path="/addproblem" element={<AddProblem/>}></Route>
                 <Route path="/display-problems" element={<DisplayAllProblems/>}/>
+                <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
+
 
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="project-details" element={<ProjectDetails/>}/>
