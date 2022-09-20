@@ -42,3 +42,17 @@ export const AddStudentProjectAPI = async ({ project_id, token }) => {
     console.log("Error is: " + err.response);
   }
 };
+
+export const GetProjectAPI = async ({ project_id }) => {
+  try {
+    const url = `/api/project/displayProject`;
+    const response = await axios.post(url, {
+      project_id,
+    });
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log({ ...err.response });
+    console.log("Error is: " + err.response);
+  }
+};
