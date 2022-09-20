@@ -19,6 +19,18 @@ const problemSchema = new mongoose.Schema(
         trim: true,
       },
     ],
+    image: [{
+      public_id: {
+        type: String,
+        trim: true,
+        default: ''
+      },
+      url: {
+        type: String,
+        trim: true,
+        default: ''
+      }
+    }],
     solution_id: [
       {
         type: String,

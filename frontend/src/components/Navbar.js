@@ -48,7 +48,7 @@ const Navbar = () => {
 											{/* <!-- Dropdown list --> */}
 											<ul className="dropdown-menu">
 												<Link className="dropdown-item @@dashboardPage" to={"/display-projects"}>Display All project</Link>
-												<li><a className="dropdown-item @@dashboardMyAds" href="dashboard-my-ads.html">Dashboard My Ads</a></li>
+												<Link className="dropdown-item @@dashboardMyAds" to={"/display-problems"}>Display ALl Problems</Link>
 												<li><a className="dropdown-item @@dashboardFavouriteAds" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a></li>
 												<li><a className="dropdown-item @@dashboardArchivedAds" href="dashboard-archived-ads.html">Dashboard Archived Ads</a></li>
 												<li><a className="dropdown-item @@dashboardPendingAds" href="dashboard-pending-ads.html">Dashboard Pending Ads</a></li>

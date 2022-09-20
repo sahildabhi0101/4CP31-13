@@ -20,6 +20,8 @@ import Aboutus from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 
 import { QueryClientProvider, QueryClient } from 'react-query'
+import DisplayAllProblems from "../components/problem/displayProblem/DisplayAllProblems";
+import AddProblem from "../components/problem/addProblem/AddProblem";
 const queryClient = new QueryClient()
 
 export const MainRoute = () => {
@@ -38,6 +40,10 @@ export const MainRoute = () => {
                 <Route path="/display-projects" element={<DisplayAllProjects/>}/>
                 <Route exact path="/myprojects" element={<MyProjects/>}></Route>
                 
+
+                <Route path="/addproblem" element={<AddProblem/>}></Route>
+                <Route path="/display-problems" element={<DisplayAllProblems/>}/>
+
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="project-details" element={<ProjectDetails/>}/>
                 <Route path="about-us" element={<Aboutus/>}/>

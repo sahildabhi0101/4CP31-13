@@ -1,7 +1,27 @@
 const problem_schema = require('../model/ProblemSchema')
-const agy_pbm_schema = require('../model/AgencyProblemSchema')
+const agy_pbm_schema = require('../model/AgencyProblemSchema');
+const Problem = require('../model/ProblemSchema');
 
+const AddAgencyProblem = async (problem_id,agency_id) => {
+	try{
+		const data = new AgencyProblem({
+			problem_id,
+			agency_id,
+		});
+		const result = await AgencyProblem.findOne({problem_id,student_id});
+		if(result){
+			console.log("result already found")
+			return { isError: true, errorMsg: "agency already exists"}
+		}
+		const agency_problem = await data.save();
 
+		if(agency_problem) return { isError: false};
+		else return { isError: true, errorMsg: "Server Error! Please try again"};
+	}
+	catch(err){
+		console.log("Error while adding students in projects: "+err);
+	}
+}
 module.exports = {
 	get_all_problems: async (req, res) => {
 		try {
@@ -86,7 +106,7 @@ module.exports = {
 			]).skip(((page - 1) * (limitPerPage))).limit(limitPerPage)
 
 			const totalPage = Math.ceil(count / limitPerPage);
-
+			
 			if (problemWithAgencies && page <= totalPage) {
 				var response = {
 					status: true,
@@ -123,15 +143,18 @@ module.exports = {
 			problem_title,
 			problem_desc,
 			tags,
+			image,
 			solution_id
 		} = req.body;
-		const new_problem = new problem_schema({
+		const new_problem = new Problem({
 			problem_title,
 			problem_desc,
 			tags,
+			image,
 			solution_id
 		})
 		try {
+			console.log('insidde... ',req.body)
 			const is_added = await new_problem.save();
 			if (!is_added) {
 				return res.status(400).json({
@@ -160,9 +183,7 @@ module.exports = {
 			})
 		}
 	},
-
 	// agency problem
-
 	allAgencyProblem: async (req, res) => {
 		try {
 			const allproblem = await agy_pbm_schema.find({ agencies_id: req.user._id }).populate('problem_id')
