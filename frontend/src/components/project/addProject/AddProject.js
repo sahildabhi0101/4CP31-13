@@ -1,4 +1,6 @@
 import React from 'react'
+import Navbar from '../../Navbar'
+import Footer from '../../Footer';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect} from "react";
 import { TagInput } from 'evergreen-ui'
@@ -84,53 +86,57 @@ export default function AddProject() {
   };
 
   return (
-    <div className="write">
-      <img
-        className="writeImg"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt=""
-      />
-      <form>
-        <div className="">
-          <div className="">
-            <label htmlFor="fileInput">
-              <i className="writeIcon fas fa-plus"></i>
-            </label>
-            <input type="file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
-            <input
-              name="project_title"
-              className="writeInput"
-              placeholder="Title"
-              type="text"
-              autoFocus={true}
-              onChange={handleInput}
-              value={initialValues.project_title}
-            />
-          </div>
-          <div className="">
-            <textarea
-              name="project_desc"
-              className="writeInput writeText"
-              placeholder="Tell your story..."
-              type="text"
-              onChange={handleInput}
-              value={initialValues.project_desc}
-            />
-          </div>
-          <div style={{
-            display: 'block', width: "700", paddingLeft: "30"
-          }}>
-            <h4>Enter Tags of your project</h4>
-            <TagInput
-              inputProps={{ placeholder: 'Add Names..' }}
-              onChange={data => { setTags(data) }}
-              values={tag}
-            />
-          </div>
-          <button type="submit" onClick={onSubmit} className="btn btn-primary font-weight-bold mt-3">Add Project</button>
-
-        </div>
-      </form>
-    </div>
+    <>
+    <Navbar/>
+        <section class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center">
+                        <h3>Add Project</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                    <form action="#">
+                                        <fieldset className="p-4">
+                                            <div className="form-group">
+                                                <div className="row">
+                                                    <div className="col-lg-12">
+                                                        <input type="text" placeholder="Title *" className="form-control" required 
+                                                                        name="project_title"
+                                                                        autoFocus={true}
+                                                                        onChange={handleInput}
+                                                                        value={initialValues.project_title}/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group choose-file d-inline-flex ">
+                                              <i className="fa fa-archive mt-1"></i>
+                                              <input type="file" class="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }}/>
+                                            </div>
+                                            <div className="row">
+                                                  <div className="col-lg-12 py-1">
+                                                    <TagInput
+                                                      className="form-control"
+                                                      inputProps={{ placeholder: 'Add Tags..' }}
+                                                      onChange={data => { setTags(data) }}
+                                                      values={tag}
+                                                    />
+                                                  </div>
+                                            </div>
+                                            <textarea name="project_desc" className="border w-100 p-3 mt-3 mt-lg-4" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
+                                            <div className="btn-grounp">
+                                                <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">ADD PROJECT</button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+    <Footer/>
+    </>
   );
 }

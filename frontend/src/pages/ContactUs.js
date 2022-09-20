@@ -6,6 +6,15 @@ const ContactUs = () => {
     return (
         <>        
             <Navbar/>
+            <section class="page-title">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 text-center">
+                            <h3>Contact Us</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
                 <section className="section">
                     <div className="container">
                         <div className="row">
