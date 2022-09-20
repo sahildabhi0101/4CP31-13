@@ -1,27 +1,88 @@
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { getCookie } from 'react-use-cookie'
+import { GetProjectAPI } from "../../../API/ProjectAPI";
+import "./singlePost.css";
+import Footer from '../../../components/Footer'
+import Navbar from '../../../components/Navbar'
 
-import React,{useEffect, useState} from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-import product1 from '../images/products/products-1.jpg'
-
-const ProjectDetails = () => {
-	const [category,setCategory] = useState('product_details');
+export default function SingleProject() {
+    const { project_id } = useParams();
+    const [data, setData] = useState("");
+    const [category,setCategory] = useState('product_details');
 	useEffect(()=>{},[category])
-  return (
+
+    async function fetchMyAPI() {
+      const res = await GetProjectAPI({ project_id });
+      setData(res);
+      console.log("project_id", project_id);
+      console.log(res);
+    }
+  
+    useEffect(() => {
+      fetchMyAPI();
+    }, []);
+  
+    return (
     <>
-      <Navbar/>
-	
-{/* <!--===================================
-=            Store Section            =
-====================================--> */}
-<section className="section bg-gray">
-	{/* <!-- Container Start --> */}
-	<div className="container">
+     <Navbar/>
+      {/* <div className="singlePost">
+        <div className="singlePostWrapper">
+          {data && data.project.image.length > 0 ? (
+            <img className="singlePostImg"  style={{ width: '100%', height: 300 }} src={data.project.image[0].url} alt="single project img" />
+          ) :
+            <img
+              className="singlePostImg"
+              src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt=""
+            />}
+          <h1 className="singlePostTitle">
+            {data ? data.project.project_title : ""}
+          </h1>
+          <div className="singlePostInfo">
+            <span>
+              Author:
+              <b className="singlePostAuthor">
+                <Link className="link" to="/posts?username=Safak">
+                  Safak
+                </Link>
+              </b>
+            </span>
+            <span>1 day ago</span>
+          </div>
+          <p className="singlePostDesc">
+            {data ? data.project.project_desc : ""}
+          </p>
+          {getCookie("user") === "investor" ?
+            <>
+              email id of student is :: <p className="singlePostDesc">
+                {data ? data.students[0].student_id.email : ""}
+              </p>
+              mobile no of student is :: <p className="singlePostDesc">
+                {data ? data.students[0].student_id.mobile_no : ""}
+              </p>
+            </>
+            : ""
+          }
+        </div>
+  
+  
+      </div> */}
+      {data && data.project.image.length > 0 ? (
+            <img className="singlePostImg"  style={{ width: '100%', height: 300 }} src={data.project.image[0].url} alt="single project img" />
+          ) :
+            <img
+              className="singlePostImg"
+              src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt=""
+            />}
+
+      <div className="container">
 		<div className="row">
 			{/* <!-- Left sidebar --> */}
 			<div className="col-lg-12">
 				<div className="product-details">
-					<h1 className="product-title">Hp Dual Core 2gb Ram-Slim Laptop Available In Very Low Price</h1>
+					<h1 className="product-title"> {data ? data.project.project_title : ""}</h1>
 					<div className="product-meta">
 						<ul className="list-inline">
 							<li className="list-inline-item"><i className="fa fa-user-o"></i> By <a href="user-profile.html">Andrew</a></li>
@@ -30,25 +91,7 @@ const ProjectDetails = () => {
 						</ul>
 					</div>
 
-					{/* <!-- product slider --> */}
-					<div className="product-slider">
-						<div className="product-slider-item my-4" data-image={product1}>
-							<img className="img-fluid w-100" src={product1} alt="product-img"/>
-						</div>
-						<div className="product-slider-item my-4" data-image={require("../images/products/products-2.jpg")}>
-							<img className="d-block img-fluid w-100" src={require("../images/products/products-2.jpg")} alt="Second slide"/>
-						</div>
-						<div className="product-slider-item my-4" data-image={require("../images/products/products-3.jpg")}>
-							<img className="d-block img-fluid w-100" src={require("../images/products/products-3.jpg")} alt="Third slide"/>
-						</div>
-						<div className="product-slider-item my-4" data-image={product1}>
-							<img className="d-block img-fluid w-100" src={product1} alt="Third slide"/>
-						</div>
-						<div className="product-slider-item my-4" data-image={require("../images/products/products-2.jpg")}>
-							<img className="d-block img-fluid w-100" src={require("../images/products/products-2.jpg")} alt="Third slide"/>
-						</div>
-					</div>
-					{/* <!-- product slider --> */}
+					
 
 					<div className="content mt-5 pt-5">
 						<ul className="nav nav-pills  justify-content-center" id="pills-tab" role="tablist">
@@ -70,23 +113,7 @@ const ProjectDetails = () => {
 								category==='product_details' && 
 								(<div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 								<h3 className="tab-title">Product Description</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia laudantium beatae quod perspiciatis, neque
-									dolores eos rerum, ipsa iste cum culpa numquam amet provident eveniet pariatur, sunt repellendus quas
-									voluptate dolor cumque autem molestias. Ab quod quaerat molestias culpa eius, perferendis facere vitae commodi
-									maxime qui numquam ex voluptatem voluptate, fuga sequi, quasi! Accusantium eligendi vitae unde iure officia
-									amet molestiae velit assumenda, quidem beatae explicabo dolore laboriosam mollitia quod eos, eaque voluptas
-									enim fuga laborum, error provident labore nesciunt ad. Libero reiciendis necessitatibus voluptates ab
-									excepturi rem non, nostrum aut aperiam? Itaque, aut. Quas nulla perferendis neque eveniet ullam?</p>
-
-								<p></p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam sed, officia reiciendis necessitatibus
-									obcaecati eum, quaerat unde illo suscipit placeat nihil voluptatibus ipsa omnis repudiandae, excepturi! Id
-									aperiam eius perferendis cupiditate exercitationem, mollitia numquam fuga, inventore quam eaque cumque fugiat,
-									neque repudiandae dolore qui itaque iste asperiores ullam ut eum illum aliquam dignissimos similique! Aperiam
-									aut temporibus optio nulla numquam molestias eum officia maiores aliquid laborum et officiis pariatur,
-									delectus sapiente molestiae sit accusantium a libero, eligendi vero eius laboriosam minus. Nemo quibusdam
-									nesciunt doloribus repellendus expedita necessitatibus velit vero?</p>
-
+								<p>{data ? data.project.project_desc : ""}?</p>
 								</div>)
 							}
 							{
@@ -137,7 +164,7 @@ const ProjectDetails = () => {
 								<div className="product-review">
 									<div className="media">
 										{/* <!-- Avater --> */}
-										<img src={require("../images/user/user-thumb.jpg")} alt="avater"/>
+										{/* <img src={require("../images/user/user-thumb.jpg")} alt="avater"/> */}
 										<div className="media-body">
 											{/* <!-- Ratings --> */}
 											<div className="ratings">
@@ -210,12 +237,8 @@ const ProjectDetails = () => {
 
 		</div>
 	</div>
-	{/* <!-- Container End --> */}
-</section>
 
-<Footer/>
-    </>
-  )
+      <Footer/>
+      </>
+    );
 }
-
-export default ProjectDetails
