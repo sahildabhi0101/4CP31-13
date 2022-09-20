@@ -120,7 +120,7 @@ const Navbar = () => {
 													</Dropdown.Item>
 													<Dropdown.Item href="/">Home</Dropdown.Item>
 													<Dropdown.Item href="/addproject">add project</Dropdown.Item>
-													<Dropdown.Item href="/studentprojects">my project</Dropdown.Item>
+													<Dropdown.Item href="/myprojects">my project</Dropdown.Item>
 													<Dropdown.Item href="/logout">Logout</Dropdown.Item>
 												</Dropdown.Menu>
 											) : whoisLoggedin.user === "investor" ? (
