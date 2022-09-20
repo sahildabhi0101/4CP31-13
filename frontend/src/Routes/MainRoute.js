@@ -12,9 +12,13 @@ import { DisplayAllProjects } from "../components/project/displayProject/Display
 import Aboutus from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 
+import { QueryClientProvider, QueryClient } from 'react-query'
+const queryClient = new QueryClient()
+
 export const MainRoute = () => {
     return(
         <>
+            <QueryClientProvider client={queryClient}>
             <Routes>
                 <Route exact path="/" element={<Home />}></Route>
                 <Route path="/" element={<Home/>} />
@@ -30,6 +34,7 @@ export const MainRoute = () => {
                 <Route path="about-us" element={<Aboutus/>}/>
                 <Route path="contact-us" element={<ContactUs/>}/>
             </Routes>
+            </QueryClientProvider>
         </>
     )
 }

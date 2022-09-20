@@ -8,34 +8,33 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
 var tpage = 1;
+const fetchProjects = async (pageNumber, limit = 3) => {
+  const get_stories = await axios.get(`/api/project/projectbypage?page=${pageNumber}&&limit=${limit}`)
+  // console.log(get_stories.data.projectWithStudent)
+  tpage = get_stories.data.totalPage
+  return get_stories.data.projectWithStudent;
+}
 
 export const DisplayAllProjects = () => {
 
   const [pageNumber, setPageNumber] = useState(1)
-  const [data, setData] = useState([])
-  
-  const fetchProjects = async (pageNumber, limit = 3) => {
-    const get_stories = await axios.get(`/api/project/projectbypage?page=${pageNumber}&&limit=${limit}`)
-    // console.log(get_stories.data.projectWithStudent)
-    tpage = get_stories.data.totalPage
-    setData(get_stories.data.projectWithStudent);
+  const { isLoading, isError, error, data, isFetching } = useQuery(
+    ['colors', pageNumber],
+    () => fetchProjects(pageNumber),
+    {
+      keepPreviousData: true
+    }
+  )
+  if (isLoading) {
+    return <h2>Loading...</h2>
   }
-  useEffect(() => {fetchProjects(pageNumber)},[])
-  // const data = fetchProjects(pageNumber)
-  console.log(data)
-  // if (isLoading) {
-  //   return <h2>Loading...</h2>
-  // }
-
-  // if (isError) {
-  //   return <h2>{error.message}</h2>
-  // }
+  if (isError) {
+    return <h2>{error.message}</h2>
+  }
   return (
     <>
       <Container 
-      // maxW={'1200px'} 
       my={5} p={3} px={5} 
-      // borderRadius={'md'}
       >
         <center>
           <h1 size={'xl'}>
@@ -62,20 +61,20 @@ export const DisplayAllProjects = () => {
         }
        
       </Container>
-      {/* <div>
+      <div>
         <Row>
-          <Col><button colorScheme='teal' variant='outline'
+          <Col><button  variant='outline'
             onClick={() => setPageNumber(page => page - 1)}
             disabled={pageNumber === 1}>
             Prev Page
           </button></Col>
-          <Col><button colorScheme='teal' variant='outline'
+          <Col><button variant='outline'
             onClick={() => setPageNumber(page => page + 1)}
             disabled={pageNumber === tpage}>
             Next Page
           </button></Col>
         </Row>
-      </div> */}
+      </div>
     </>
   );
 }
