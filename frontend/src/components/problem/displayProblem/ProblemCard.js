@@ -1,5 +1,8 @@
 import React from 'react'
 import Badge from 'react-bootstrap/Badge';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 const ProblemCard = (props) => {
   return (
@@ -20,6 +23,16 @@ const ProblemCard = (props) => {
                             <Badge bg="secondary" className="mx-2" key={index}>{tag}</Badge>
                         ))
                     }
+                    {props.user === 'agency' ?
+                                        <>
+                                            <Row align={'center'} mt={6} px={3}>
+                                                <Col><Link to={`/problem/${props.problem_id}`}><button>View</button> </Link></Col>
+                                                <Col><Link to={`/updateproblem/${props.problem_id}`}><button>Edit</button> </Link></Col>
+                                                <Col><button onClick={() => props.onDelete(props.project_id)}>Delete</button></Col>
+                                            </Row>
+                                        </>
+                                        : ''
+                                    }
                                 {/* <h4 className="card-title">{props.tags}</h4> */}
                                 {/* <h4 className="card-title">{props.students}</h4> */}
                             </div>
@@ -35,4 +48,4 @@ const ProblemCard = (props) => {
   )
 }
 
-export default ProblemCard
+export default ProblemCard;

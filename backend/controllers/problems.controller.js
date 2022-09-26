@@ -1,6 +1,7 @@
 const problem_schema = require('../model/ProblemSchema')
 const agy_pbm_schema = require('../model/AgencyProblemSchema');
 const Problem = require('../model/ProblemSchema');
+const StudentProjectSchema = require('../model/StudentProjectSchema');
 
 const AddAgencyProblem = async (problem_id,agency_id) => {
 	try{
@@ -233,6 +234,26 @@ module.exports = {
 
 		} catch (err) {
 			res.status(500).send({ message: "Something want to wrong Please try later" })
+		}
+	},
+	displayProblem: async (req,res) => {
+		try{
+			const { problem_id } = req.body;
+			const problem = await Problem.findOne({_id: problem_id});
+			
+			const students_ids = await StudentProjectSchema.find({
+				problem_id: problem_id,
+			})
+			.select("student_id")
+			.populate("student_id");
+
+			return res.status(200).json({
+				problem: problem,
+				students_ids: students_ids,
+			});
+		}catch(err){
+			console.log("Error while displaying problem"+err);
+			res.status(200).send({error:"Error while displaying problem"})
 		}
 	},
 
