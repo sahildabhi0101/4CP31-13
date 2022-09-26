@@ -22,6 +22,10 @@ import ContactUs from "../pages/ContactUs";
 import { QueryClientProvider, QueryClient } from 'react-query'
 import DisplayAllProblems from "../components/problem/displayProblem/DisplayAllProblems";
 import AddProblem from "../components/problem/addProblem/AddProblem";
+import MyProblems from "../components/problem/displayProblem/MyProblems";
+import SingleProblem from "../components/problem/singleProblem/singleProblem";
+
+
 const queryClient = new QueryClient()
 
 export const MainRoute = () => {
@@ -39,12 +43,13 @@ export const MainRoute = () => {
                 <Route path="/addproject" element={<AddProject />}></Route>
                 <Route path="/display-projects" element={<DisplayAllProjects/>}/>
                 <Route exact path="/myprojects" element={<MyProjects/>}></Route>
+                <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
                 
 
                 <Route path="/addproblem" element={<AddProblem/>}></Route>
                 <Route path="/display-problems" element={<DisplayAllProblems/>}/>
-                <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
-
+                <Route exact path="/agencyproblems" element={<MyProblems/>}></Route>
+                <Route exact path="/problem/:problem_id" element={<SingleProblem/>}></Route>
 
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="project-details" element={<ProjectDetails/>}/>
