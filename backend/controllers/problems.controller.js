@@ -269,7 +269,7 @@ module.exports = {
 			res.status(500).send({message:"Something want to wrong Please try later"})
 		}
 	},
-	remove_problems: async (req, res) => {
+	deleteAgencyProblem: async (req, res) => {
 		try {
 			const isDelete = await problem_schema.findByIdAndDelete({ _id: req.params.problem_id })
 			const ageproblem = await agy_pbm_schema.deleteOne({ problem_id: req.params.problem_id })
