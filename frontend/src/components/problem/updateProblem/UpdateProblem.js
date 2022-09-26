@@ -1,50 +1,44 @@
 import React from 'react'
-import { useNavigate, useParams } from "react-router-dom";
-import { getCookie } from "react-use-cookie";
+import { useNavigate, useParams } from 'react-router-dom';
+import { getCookie} from "react-use-cookie";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
-
-import {UpdateStudentProject } from "../../../API/ProjectAPI";
-import "./updateProject.css";
-import axios from 'axios';
+import {UpdateAgencyProblem} from "../../../API/ProblemAPI";
+import "./updateProblem.css"
+import axios from "axios"
 
 const initialValues = {
-  project_title: "",
-  project_desc: "",
-//   tags: [],
-//   image: ""
-  // tags: [],
-};
-
-
-export default function UpdateProject() {
-  const { project_id } = useParams();
+    problem_title:"",
+    problem_desc:"",
+}
+const UpdateProblem = () => {
+    const { problem_id } = useParams();
   const navigate = useNavigate();
   const [token, setToken] = useState("");
   const [initialValues, setInitialValues] = useState({
-    project_title: '',
-    project_desc: '',
+    problem_title: '',
+    problem_desc: '',
   })
   const [tag, setTags] = useState([]);
   const [photo,setPhoto] = React.useState("");
   useEffect(() => {
-    fetchProject();
+    fetchProblem();
     console.log("token-", token);
     if (token === "") {
       setToken(getCookie("st"));
     }
   }, []);
 
-  const fetchProject = async () => {
-    const project = await axios.get(`/api/project/oneprojectstudent/${project_id}`)
-    console.log(project);
-    initialValues.project_title = project.data.userdata.project_id.project_title;
-    initialValues.project_desc = project.data.userdata.project_id.project_desc;
-    // initialValues.tags = project.data.userdata.project_id.tags;
+  const fetchProblem= async () => {
+    const problem = await axios.get(`/api/problem/oneproblemagency/${problem_id}`)
+    console.log("problem",problem);
+    initialValues.problem_title = problem.data.userData.problem_id.problem_title;
+    initialValues.problem_desc = problem.data.userData.problem_id.problem_desc;
+    // initialValues.tags = problem.data.userdata.problem_id.tags;
 
     // console.log('project', initialValues.project_title, initialValues.project_desc, initialValues.tags)
-    setTags(project.data.userdata.project_id.tags)
-    setPhoto(project.data.userdata.project_id.image[0].url)
+    setTags(problem.data.userData.problem_id.tags)
+    setPhoto(problem.data.userData.problem_id.image[0].url)
   }
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -77,8 +71,8 @@ export default function UpdateProject() {
     const file = await res.json();
 
     const updateData = {
-      project_title: initialValues.project_title,
-      project_desc: initialValues.project_desc,
+      project_title: initialValues.problem_title,
+      project_desc: initialValues.problem_desc,
       tags: tag,
       image: {
         url: file.url,
@@ -86,12 +80,11 @@ export default function UpdateProject() {
       },
     };
     console.log("update",updateData)
-    const isUpdate = await UpdateStudentProject(project_id, updateData)
+    const isUpdate = await UpdateAgencyProblem(problem_id, updateData)
     console.log(isUpdate)
     if (isUpdate.statusCode === 200) alert('Updated successfully')
     else alert('Not updated')
   };
-
   return (
     <div className="write">
       <img
@@ -103,7 +96,7 @@ export default function UpdateProject() {
           <form onSubmit={onSubmit}>
             <div className="writeForm">
               <div className="writeFormGroup">
-              <input type="file" className="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]);  }} />
+              <input type="file" class="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]);  }} />
                 {/* <input type="file" multiple onChange={ (e) => {setPhoto( oldarray => [...oldarray, e.target.files[0] ] ) } }  /> */}
                 <input
                   name="project_title"
@@ -112,7 +105,7 @@ export default function UpdateProject() {
                   type="text"
                   autoFocus={true}
                   onChange={handleInput}
-                  value={initialValues.project_title}
+                  value={initialValues.problem_title}
                 />
               </div>
               <div className="writeFormGroup">
@@ -121,13 +114,13 @@ export default function UpdateProject() {
                   className="writeInput writeText"
                   placeholder="Tell your story..."
                   type="text"
-                  onChange={handleInput} value={initialValues.project_desc}
+                  onChange={handleInput} value={initialValues.problem_desc}
                 />
               </div>
               <div style={{
                 display: 'block', width: 700, paddingLeft: 30
               }}>
-                <h4>Enter Tags of your project</h4>
+                <h4>Enter Tags of your problem</h4>
                 <TagInput
                   defaultValue={tag}
                   inputProps={{ placeholder: 'Add Names..' }}
@@ -136,12 +129,12 @@ export default function UpdateProject() {
                 />
               </div>
               <div className="btn-grounp">
-                  <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">UPDATE PROJECT</button>
+                  <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">UPDATE PROBLEM</button>
                 </div>
             </div>
           </form>
-
-        
     </div>
-  );
+  )
 }
+
+export default UpdateProblem

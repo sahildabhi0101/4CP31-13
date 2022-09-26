@@ -9,7 +9,9 @@ const { get_all_problems,
     allAgencyProblem,
     get_all_problems_by_page, 
     agencyProblem,
-    displayProblem} = require('../controllers/problems.controller')
+    displayProblem,
+    oneProblemAgency,
+    deleteAgencyProblem} = require('../controllers/problems.controller')
 
 
 
@@ -22,6 +24,7 @@ routes.post("/displayproblem", displayProblem)
 routes.post('/addproblem',checkAuthAgency, post_problem)
 // routes.post("/allagencyproblems",checkAuthAgency,allAgencyProblems)
 
+routes.get("/oneproblemagency/:problem_id", checkAuthAgency, oneProblemAgency)
 routes.put('/updateproblem/:problem_id', checkAuthAgency, update_problem);
-routes.delete('/removeproblem/:problem_id', remove_problems);
+routes.delete('/deleteagencyproblem/:problem_id',checkAuthAgency, deleteAgencyProblem);
 module.exports = routes;
