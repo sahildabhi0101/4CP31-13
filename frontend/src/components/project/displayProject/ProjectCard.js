@@ -1,7 +1,5 @@
 import React from 'react'
 import Badge from 'react-bootstrap/Badge';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 
 export const ProjectCard = (props) => {
@@ -10,7 +8,7 @@ export const ProjectCard = (props) => {
         <>
             <tr>
                 <td class="product-thumb">
-                  <img width="80px" height="auto" src={props.img} alt="Project Image"/></td>
+                  <img width="80px" height="auto" src={props.img} alt="Project Images"/></td>
                 <td class="product-details">
                   <h3 class="title"><strong>Title : </strong>{props.project_title}</h3>
                   <span class="add-id">{props.project_desc}</span>
@@ -39,9 +37,9 @@ export const ProjectCard = (props) => {
                         </a>
                       </li>
                       <li class="list-inline-item ml-1">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="dashboard.html">
-                        {/* <button onClick={() => props.onDelete(props.project_id)}>Delete</button>  */}
-                        <i class="fa fa-trash"></i>
+                        <a className="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="/#">
+                        <button style={{border:"none",backgroundColor: "Transparent"}}  onClick={() => props.onDelete(props.project_id)}><i class="fa fa-trash"></i>
+                        </button> 
                         </a>
                       </li>
                     </ul>
