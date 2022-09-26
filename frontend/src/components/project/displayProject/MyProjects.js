@@ -21,6 +21,16 @@ export const MyProjects = () => {
   }
   useEffect(() => { fetchProjects(); }, [])
 
+  const [filteredData, setFilteredData] = useState([]);
+  const [searchValue, setsearchValue] = useState("");
+  const filterFunction = async () => {
+    // console.log(searchValue);
+    const all_project = await axios.get(`/api/project/filterprojectsingleuser?search=${searchValue}`)
+    // console.log(all_project.data.userdata)
+    setFilteredData(all_project.data.userdata);
+  }
+  useEffect(() => { filterFunction() }, [searchValue])
+
   return (
     <>
       <Navbar />
@@ -79,7 +89,8 @@ export const MyProjects = () => {
             <div class="col-lg-8">
               <div class="widget dashboard-container my-adslist">
                 <h3 class="widget-header">My Projects</h3>
-                
+                <input type="text" style={{ border: "2px solid black" }} onChange={(e) => { setsearchValue(e.target.value) }} placeholder="Search via TAGS" />
+
                 <table class="table table-responsive product-dashboard-table">
                   <thead>
                     <tr>
@@ -91,21 +102,40 @@ export const MyProjects = () => {
                   </thead>
                   <tbody>
                     {
-                      projects ?
-                        projects.map((project, index) => (
+
+                      searchValue !== ""
+                        ?
+                        filteredData.map((project, index) => (
                           project.project_id != null ?
                             <ProjectCard
                               key={index}
                               project_id={project.project_id._id}
                               project_title={project.project_id.project_title}
                               project_desc={project.project_id.project_desc}
-                              // students={project.student_id}    //remaining to make api
+                              // students={project.student}
                               tags={project.project_id.tags}
                               img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
                               user={'student'}
                               onDelete={onDelete}
                             /> : ''
-                        )) : ""
+                        ))
+                        :
+
+                        projects ?
+                          projects.map((project, index) => (
+                            project.project_id != null ?
+                              <ProjectCard
+                                key={index}
+                                project_id={project.project_id._id}
+                                project_title={project.project_id.project_title}
+                                project_desc={project.project_id.project_desc}
+                                // students={project.student_id}    //remaining to make api
+                                tags={project.project_id.tags}
+                                img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
+                                user={'student'}
+                                onDelete={onDelete}
+                              /> : ''
+                          )) : ""
                     }
                   </tbody>
                 </table>

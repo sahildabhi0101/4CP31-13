@@ -42,9 +42,7 @@ export const MainRoute = () => {
                 {/* projects */}
                 <Route path="/addproject" element={<AddProject />} />
                 <Route path="/display-projects" element={<DisplayAllProjects/>}/>
-                <Route exact path="/myprojects" element={<MyProjects/>}></Route>
                 <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
-                
                 <Route exact path="/myprojects" element={<MyProjects/>} />
                 <Route exact path="/updateproject/:project_id" element={<UpdateProject />} />
 

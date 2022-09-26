@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { ProjectCard } from './ProjectCard';
 import { useQuery } from 'react-query'
 import axios from 'axios';
@@ -24,6 +25,17 @@ export const DisplayAllProjects = () => {
       keepPreviousData: true
     }
   )
+
+  const [filteredData,setFilteredData] = useState([]);
+  const [searchValue,setsearchValue] = useState("");
+  const filterFunction = async () => {
+    const all_project = await axios.get(`/api/project/filterdata?search=${searchValue}`)
+    console.log(all_project.data) 
+    setFilteredData(all_project.data);
+  }
+
+  useEffect(() => {filterFunction() } ,[searchValue])
+  
   if (isLoading) {
     return <h2>Loading...</h2>
   }
@@ -40,8 +52,24 @@ export const DisplayAllProjects = () => {
             All Projects
           </h1>
         </center>
-        
-        {
+        <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setsearchValue(e.target.value)}}  placeholder="Search via TAGS" />
+        {searchValue !== ""
+        ? 
+          filteredData.map((project, index) => (
+            // <Link to={`/project/${project._id}`}>
+              <ProjectCard
+                key={index}
+                project_title={project.project_title}
+                project_desc={project.project_desc}
+                students={project.student}
+                tags={project.tags}
+                img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url  }
+              />
+            // </Link>
+          )) 
+         :
+
+
           data.length > 0 ?
             data.map((project, index) => (
               // <Link to={`/project/${project._id}`}>
@@ -53,7 +81,7 @@ export const DisplayAllProjects = () => {
                   tags={project.tags}
                   img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
                 />
-              // </Link>
+              // {/* </Link> */}
             
             ))
              : "hey sahil"

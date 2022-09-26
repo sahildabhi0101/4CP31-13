@@ -40,7 +40,7 @@ export default function UpdateProject() {
     console.log(project);
     initialValues.project_title = project.data.userdata.project_id.project_title;
     initialValues.project_desc = project.data.userdata.project_id.project_desc;
-    initialValues.tags = project.data.userdata.project_id.tags;
+    // initialValues.tags = project.data.userdata.project_id.tags;
 
     // console.log('project', initialValues.project_title, initialValues.project_desc, initialValues.tags)
     setTags(project.data.userdata.project_id.tags)
