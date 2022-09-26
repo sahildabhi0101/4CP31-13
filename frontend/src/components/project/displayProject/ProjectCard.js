@@ -10,7 +10,7 @@ export const ProjectCard = (props) => {
         <>
             <tr>
                 <td class="product-thumb">
-                  <img width="80px" height="auto" src={props.img} alt="Project Image"/></td>
+                  <img width="80px" height="auto" src={props.img} alt="Project"/></td>
                 <td class="product-details">
                   <h3 class="title"><strong>Title : </strong>{props.project_title}</h3>
                   <span class="add-id">{props.project_desc}</span>

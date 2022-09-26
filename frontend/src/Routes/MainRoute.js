@@ -24,6 +24,8 @@ import DisplayAllProblems from "../components/problem/displayProblem/DisplayAllP
 import AddProblem from "../components/problem/addProblem/AddProblem";
 import MyProblems from "../components/problem/displayProblem/MyProblems";
 import SingleProblem from "../components/problem/singleProblem/singleProblem";
+import UpdateProblem from "../components/problem/updateProblem/UpdateProblem";
+
 
 
 const queryClient = new QueryClient()
@@ -53,6 +55,7 @@ export const MainRoute = () => {
                 <Route path="/display-problems" element={<DisplayAllProblems/>}/>
                 <Route exact path="/agencyproblems" element={<MyProblems/>}></Route>
                 <Route exact path="/problem/:problem_id" element={<SingleProblem/>}></Route>
+                <Route exact path="updateproblem/:problem_id" element={<UpdateProblem/>}/>
                 
 
 

@@ -2,6 +2,7 @@ const problem_schema = require('../model/ProblemSchema')
 const agy_pbm_schema = require('../model/AgencyProblemSchema');
 const Problem = require('../model/ProblemSchema');
 const StudentProjectSchema = require('../model/StudentProjectSchema');
+const AgencyProblemSchema = require('../model/AgencyProblemSchema');
 
 const AddAgencyProblem = async (problem_id,agency_id) => {
 	try{
@@ -256,7 +257,18 @@ module.exports = {
 			res.status(200).send({error:"Error while displaying problem"})
 		}
 	},
-
+	oneProblemAgency: async (req, res) => {
+		try{
+			const oneProblem = await AgencyProblemSchema.findOne({ $ans: [{ agency_id: req.user._id},{project_id: req.params.problem_id}]}).populate('problem_id')
+			console.log('agency problem',oneProblem, req.user)
+			res.status(200).json({
+				message: 'all agency problems.',
+				userData: oneProblem
+			})
+		}catch(err){
+			res.status(500).send({message:"Something want to wrong Please try later"})
+		}
+	},
 	remove_problems: async (req, res) => {
 		try {
 			const isDelete = await problem_schema.findByIdAndDelete({ _id: req.params.problem_id })
