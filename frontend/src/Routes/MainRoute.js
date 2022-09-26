@@ -11,7 +11,7 @@ import AddProject from "../components/project/addProject/AddProject";
 import { DisplayAllProjects } from "../components/project/displayProject/DisplayAllProjects"
 import { MyProjects } from "../components/project/displayProject/MyProjects";
 import SingleProject from "../components/project/singleProject/SingleProject";
-
+import UpdateProject from "../components/project/updateProject/UpdateProject";
 
 import Home from "../pages/Home";
 import ProjectDetails from "../pages/ProjectDetails";
@@ -40,16 +40,21 @@ export const MainRoute = () => {
                 <Route exact path='/logout' element={<Logout />}></Route>
 
                 {/* projects */}
-                <Route path="/addproject" element={<AddProject />}></Route>
+                <Route path="/addproject" element={<AddProject />} />
                 <Route path="/display-projects" element={<DisplayAllProjects/>}/>
                 <Route exact path="/myprojects" element={<MyProjects/>}></Route>
                 <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
                 
+                <Route exact path="/myprojects" element={<MyProjects/>} />
+                <Route exact path="/updateproject/:project_id" element={<UpdateProject />} />
 
-                <Route path="/addproblem" element={<AddProblem/>}></Route>
+
+                <Route path="/addproblem" element={<AddProblem/>} />
                 <Route path="/display-problems" element={<DisplayAllProblems/>}/>
                 <Route exact path="/agencyproblems" element={<MyProblems/>}></Route>
                 <Route exact path="/problem/:problem_id" element={<SingleProblem/>}></Route>
+                
+
 
                 <Route path="user-profile" element={<UserProfile/>} />
                 <Route path="project-details" element={<ProjectDetails/>}/>

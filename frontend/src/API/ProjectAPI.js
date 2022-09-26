@@ -56,3 +56,16 @@ export const GetProjectAPI = async ({ project_id }) => {
     console.log("Error is: " + err.response);
   }
 };
+
+export const UpdateStudentProject = async (project_id, updateData) => {
+  try {
+    const url = `/api/project/updatestudentproject/${project_id}`;
+    console.log('updatedata', updateData)
+    const response = await axios.put(url, updateData);
+    const data = response.data;
+    return data;
+  } catch (err) {
+    console.log({ ...err.response });
+    console.log("Error is: " + err.response);
+  }
+};
