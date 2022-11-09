@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ProjectCard } from './ProjectCard';
 import { useQuery } from 'react-query'
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import {useLocation} from 'react-router-dom';
+import { ProjectCard } from '../displayProject/ProjectCard';
 
 var tpage = 1;
 const fetchProjects = async (pageNumber, limit = 4) => {
@@ -15,8 +16,9 @@ const fetchProjects = async (pageNumber, limit = 4) => {
   return get_stories.data.projectWithStudent;
 }
 
-export const DisplayAllProjects = () => {
+export const CategoryProjects = () => {
 
+    const location = useLocation();
   const [pageNumber, setPageNumber] = useState(1)
   const { isLoading, isError, error, data, isFetching } = useQuery(
     ['colors', pageNumber],
@@ -25,9 +27,11 @@ export const DisplayAllProjects = () => {
       keepPreviousData: true
     }
   )
-
+  
   const [filteredData,setFilteredData] = useState([]);
-  const [searchValue,setsearchValue] = useState("");
+//   const [searchValue,setsearchValue] = useState("");
+//   setsearchValue(location.state.category);
+const searchValue = location.state.category;
   const filterFunction = async () => {
     const all_project = await axios.get(`/api/project/filterdata?search=${searchValue}`)
     console.log(all_project.data) 
@@ -52,7 +56,7 @@ export const DisplayAllProjects = () => {
             All Projects
           </h1>
         </center>
-        <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setsearchValue(e.target.value)}}  placeholder="Search via TAGS" />
+        {/* <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setsearchValue(e.target.value)}}  placeholder="Search via TAGS" /> */}
         {searchValue !== ""
         ? 
           filteredData.map((project, index) => (

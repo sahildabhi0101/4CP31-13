@@ -8,7 +8,7 @@ import Col from 'react-bootstrap/Col'
 
 
 var tpage = 1;
-const fetchProblems = async (pageNumber, limit = 3) => {
+const fetchProblems = async (pageNumber, limit = 4) => {
     const get_stories = await axios.get(`/api/problem/problembypage?page=${pageNumber}&&limit=${limit}`)
     tpage = get_stories.data.totalPage;
     console.log("data ",get_stories)
