@@ -24,12 +24,23 @@ const DisplayAllProblems = () => {
       }
     )
     console.log(data);
+    const [filteredData, setFilteredData] = useState([]);
+    const [searchValue,setSearchValue] = useState("");
+    const filterFunction = async () => {
+      const all_problem = await axios.get(`api/problem/filterdata?search=${searchValue}`)
+      console.log(all_problem.data);
+      setFilteredData(all_problem.data);
+    }
+
+    useEffect(()=>{filterFunction()},[searchValue])
     if (isLoading) {
       return <h2>Loading...</h2>
     }
     if (isError) {
       return <h2>{error.message}</h2>
     }
+
+
   return (
     <>
       <Container 
@@ -40,8 +51,23 @@ const DisplayAllProblems = () => {
             All problems
           </h1>
         </center>
-        
+        <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setSearchValue(e.target.value)}}  placeholder="Search via TAGS" />
         {
+          searchValue !== ""
+          ? 
+            filteredData.map((problem, index) => (
+              // <Link to={`/project/${project._id}`}>
+                <ProblemCard
+                  key={index}
+                  problem_title={problem.problem_title}
+                  problem_desc={problem.problem_desc}
+                  students={problem.student}
+                  tags={problem.tags}
+                  img={problem.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : problem.image[0].url  }
+                />
+              // </Link>
+            )) 
+           :
           data.length > 0 ?
             data.map((problem, index) => (
               // <Link to={`/project/${project._id}`}>

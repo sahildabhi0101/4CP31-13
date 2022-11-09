@@ -11,17 +11,21 @@ const { get_all_problems,
     agencyProblem,
     displayProblem,
     oneProblemAgency,
-    deleteAgencyProblem} = require('../controllers/problems.controller')
+    deleteAgencyProblem,
+    allfilterproblems,
+    filterproblemsingleuser} = require('../controllers/problems.controller')
 
 
 
 routes.get('/all', get_all_problems);
+routes.get("/filterdata", allfilterproblems);
 routes.get('/problembypage', get_all_problems_by_page);
 routes.get('/getallproblems', checkAuthAgency, allAgencyProblem);
 routes.get('/getproblem/:problem_id', getOneProblemAgency);
 routes.post("/displayproblem", displayProblem)
 
 routes.post('/addproblem',checkAuthAgency, post_problem)
+routes.get("/filterproblemsingleuser", checkAuthAgency, filterproblemsingleuser)
 // routes.post("/allagencyproblems",checkAuthAgency,allAgencyProblems)
 
 routes.get("/oneproblemagency/:problem_id", checkAuthAgency, oneProblemAgency)
