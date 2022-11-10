@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import img1 from '../images/products/products-1.jpg'
+import img2 from '../images/products/products-2.jpg'
+import img3 from '../images/products/products-3.jpg'
+import img4 from '../images/products/products-4.jpg'
 
 const config = {
     dots: true,
@@ -15,28 +19,28 @@ const config = {
 
 const products = [
     {
-        img: '../images/products/products-1.jpg',
+        img: img1,
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: '../images/products/products-2.jpg',
+        img: img2,
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: '../images/products/products-3.jpg',
+        img: img3,
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',
         date:''
     },
     {
-        img: '../images/products/products-4.jpg',
+        img: img4,
         title: 'Dolore magna',
         text: 'Lorem ipsum dolor sit amet elit.',
         tag:'',

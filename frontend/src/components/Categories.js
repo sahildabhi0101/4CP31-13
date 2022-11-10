@@ -1,6 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useCookies } from 'react-cookie';
+import { useNavigate } from "react-router-dom";
 
 const Categories = () => {
+    let navigate = useNavigate();
+    const handleClick = (Cat) => {
+        
+        // setCategory(cat)
+        // setCookie('category', category, { path: '/' });
+        const path='/categorywiseProject'
+        navigate(path,{state:{id:1,category:Cat}})
+    }
   return (
     <section className=" section">
                     {/* <!-- Container Start --> */}
@@ -14,11 +24,12 @@ const Categories = () => {
                                 </div>
                                 <div className="row">
                                     {/* <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={()=>handleClick('html')}>
+                                    {/* <a href="categorywiseProject"> */}
                                         <div className="category-block">
                                             <div className="header">
                                                 <i className="fa fa-laptop icon-bg-1"></i>
-                                                <h4>Electronics</h4>
+                                                <h4>HTML</h4>
                                             </div>
                                             <ul className="category-list">
                                                 <li><a href="category.html">Laptops <span>93</span></a></li>
@@ -27,13 +38,14 @@ const Categories = () => {
                                                 <li><a href="category.html">Monitors <span>343</span></a></li>
                                             </ul>
                                         </div>
+                                        {/* </a> */}
                                     </div> {/* <!-- /Category List -->
                                     <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={()=>handleClick('react')}>
                                         <div className="category-block">
                                             <div className="header">
                                                 <i className="fa fa-apple icon-bg-2"></i>
-                                                <h4>Restaurants</h4>
+                                                <h4>React</h4>
                                             </div>
                                             <ul className="category-list">
                                                 <li><a href="category.html">Cafe <span>393</span></a></li>
@@ -44,11 +56,11 @@ const Categories = () => {
                                         </div>
                                     </div> {/* <!-- /Category List -->
                                     <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={()=>handleClick('node')}>
                                         <div className="category-block">
                                             <div className="header">
                                                 <i className="fa fa-home icon-bg-3"></i>
-                                                <h4>Real Estate</h4>
+                                                <h4>Node</h4>
                                             </div>
                                             <ul className="category-list">
                                                 <li><a href="category.html">Farms <span>93</span></a></li>

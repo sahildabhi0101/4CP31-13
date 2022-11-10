@@ -9,11 +9,11 @@ const checkAuthStudent = (req, res, next) => {
   if (!token) return res.status(401).send("Access Denied");
 
   try {
-    console.log("token", token);
+    // console.log("token", token);
     // console.log(process.env.TOKEN_SECRET)
     const verified = jwt.verify(token, process.env.TOKEN_SECRET);
     console.log(verified)
-    // { _id: '61dc4afe92898efe987e2e53', whoIsLoggedIs: "student", iat: 1641830535 } => verified will return
+    
 
     if (!(verified.whoIsLoggedIn === "student")) {
       return res.status(400).json({

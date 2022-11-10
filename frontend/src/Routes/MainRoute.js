@@ -11,7 +11,8 @@ import AddProject from "../components/project/addProject/AddProject";
 import { DisplayAllProjects } from "../components/project/displayProject/DisplayAllProjects"
 import { MyProjects } from "../components/project/displayProject/MyProjects";
 import SingleProject from "../components/project/singleProject/SingleProject";
-
+import UpdateProject from "../components/project/updateProject/UpdateProject";
+import { CategoryProjects } from "../components/project/categoryProjects/CategoryProjects";
 
 import Home from "../pages/Home";
 import ProjectDetails from "../pages/ProjectDetails";
@@ -22,6 +23,12 @@ import ContactUs from "../pages/ContactUs";
 import { QueryClientProvider, QueryClient } from 'react-query'
 import DisplayAllProblems from "../components/problem/displayProblem/DisplayAllProblems";
 import AddProblem from "../components/problem/addProblem/AddProblem";
+import MyProblems from "../components/problem/displayProblem/MyProblems";
+import SingleProblem from "../components/problem/singleProblem/singleProblem";
+import UpdateProblem from "../components/problem/updateProblem/UpdateProblem";
+
+
+
 const queryClient = new QueryClient()
 
 export const MainRoute = () => {
@@ -36,14 +43,21 @@ export const MainRoute = () => {
                 <Route exact path='/logout' element={<Logout />}></Route>
 
                 {/* projects */}
-                <Route path="/addproject" element={<AddProject />}></Route>
+                <Route path="/addproject" element={<AddProject />} />
                 <Route path="/display-projects" element={<DisplayAllProjects/>}/>
-                <Route exact path="/myprojects" element={<MyProjects/>}></Route>
-                
-
-                <Route path="/addproblem" element={<AddProblem/>}></Route>
-                <Route path="/display-problems" element={<DisplayAllProblems/>}/>
                 <Route exact path="/project/:project_id" element={<SingleProject />}></Route>
+                <Route exact path="/myprojects" element={<MyProjects/>} />
+                <Route exact path="/updateproject/:project_id" element={<UpdateProject />} />
+                <Route exact path="/categorywiseProject" element={<CategoryProjects />} />
+
+
+
+                <Route path="/addproblem" element={<AddProblem/>} />
+                <Route path="/display-problems" element={<DisplayAllProblems/>}/>
+                <Route exact path="/agencyproblems" element={<MyProblems/>}></Route>
+                <Route exact path="/problem/:problem_id" element={<SingleProblem/>}></Route>
+                <Route exact path="updateproblem/:problem_id" element={<UpdateProblem/>}/>
+                
 
 
                 <Route path="user-profile" element={<UserProfile/>} />

@@ -394,11 +394,14 @@ exports.allStudentProjects = async (req, res) => {
 }
 exports.filterprojectsingleuser = async (req, res) => {
   try {
+    console.log(req.query.search);
+    // console.log("inside filter function",req.user)
     const allProjects = await StudentProjectSchema.find({ student_id: req.user, }).populate('project_id')
+    // console.log(allProjects);
     let demo = []
     allProjects.map((project) => {
       project.project_id.tags.map((e) => {
-        if (e === "html") { demo.push(project) }
+        if (e === req.query.search) { demo.push(project) }
       })
     })
     // console.log(demo)

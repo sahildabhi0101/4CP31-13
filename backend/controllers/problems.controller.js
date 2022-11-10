@@ -1,6 +1,9 @@
 const problem_schema = require('../model/ProblemSchema')
 const agy_pbm_schema = require('../model/AgencyProblemSchema');
 const Problem = require('../model/ProblemSchema');
+const StudentProjectSchema = require('../model/StudentProjectSchema');
+const AgencyProblemSchema = require('../model/AgencyProblemSchema');
+const ProblemSchema = require('../model/ProblemSchema');
 
 const AddAgencyProblem = async (problem_id,agency_id) => {
 	try{
@@ -235,8 +238,39 @@ module.exports = {
 			res.status(500).send({ message: "Something want to wrong Please try later" })
 		}
 	},
+	displayProblem: async (req,res) => {
+		try{
+			const { problem_id } = req.body;
+			const problem = await Problem.findOne({_id: problem_id});
+			
+			const students_ids = await StudentProjectSchema.find({
+				problem_id: problem_id,
+			})
+			.select("student_id")
+			.populate("student_id");
 
-	remove_problems: async (req, res) => {
+			return res.status(200).json({
+				problem: problem,
+				students_ids: students_ids,
+			});
+		}catch(err){
+			console.log("Error while displaying problem"+err);
+			res.status(200).send({error:"Error while displaying problem"})
+		}
+	},
+	oneProblemAgency: async (req, res) => {
+		try{
+			const oneProblem = await AgencyProblemSchema.findOne({ $ans: [{ agency_id: req.user._id},{project_id: req.params.problem_id}]}).populate('problem_id')
+			console.log('agency problem',oneProblem, req.user)
+			res.status(200).json({
+				message: 'all agency problems.',
+				userData: oneProblem
+			})
+		}catch(err){
+			res.status(500).send({message:"Something want to wrong Please try later"})
+		}
+	},
+	deleteAgencyProblem: async (req, res) => {
 		try {
 			const isDelete = await problem_schema.findByIdAndDelete({ _id: req.params.problem_id })
 			const ageproblem = await agy_pbm_schema.deleteOne({ problem_id: req.params.problem_id })
@@ -255,6 +289,38 @@ module.exports = {
 		} catch (err) {
 			res.status(500).send({ message: "Something want to wrong Please try later" })
 		}
+	},
+	allfilterproblems: async (req, res) => {
+		try {
+			const problems = await ProblemSchema.find({ tags: req.query.search }, { success_Story_id: 0 });
+			res.status(200).send(problems)
+		
+		  } catch (err) {
+			console.log("Error while getting all filtered projects: ", err)
+			res.status(500).send({ message: "Something want to wrong Please try later" })
+		  }
+	},
+	filterproblemsingleuser: async (req, res) => {
+		try {
+			console.log(req.query.search);
+			// console.log("inside filter function",req.user)
+			const allProblems = await AgencyProblemSchema.find({ agencies_id: req.user, }).populate('problem_id')
+			// console.log(allProblems);
+			let demo = []
+			allProblems.map((problem) => {
+			  problem.problem_id.tags.map((e) => {
+				if (e === req.query.search) { demo.push(problem) }
+			  })
+			})
+			// console.log(demo)
+			res.status(200).json({
+			  message: 'all agency problems.',
+			  userdata: demo
+			})
+		
+		  } catch (err) {
+			res.status(500).send({ message: "Something want to wrong Please try later" })
+		  }
 	}
 
 }
