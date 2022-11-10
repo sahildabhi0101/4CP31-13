@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
 import { AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
-import "./addProject.css";
 import axios from 'axios';
 
 // toast.configure()
@@ -26,6 +25,7 @@ export default function AddProject() {
     setToken(JSON.parse(localStorage.getItem("Token")))
     console.log("token-", token);
   }, []);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setInitialValues((preval) => {
@@ -89,56 +89,56 @@ export default function AddProject() {
 
   return (
     <>
-      <Navbar />
-      <section class="page-title">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 offset-md-2 text-center">
-              <h3>Add Project</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <form action="#">
-              <fieldset className="p-4">
-                <div className="form-group">
-                  <div className="row">
-                    <div className="col-lg-12">
-                      <input type="text" placeholder="Title *" className="form-control" required
-                        name="project_title"
-                        autoFocus={true}
-                        onChange={handleInput}
-                        value={initialValues.project_title} />
+    <Navbar/>
+        <section class="page-title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-center">
+                        <h3>Add Project</h3>
                     </div>
-                  </div>
                 </div>
-                <div class="form-group choose-file d-inline-flex ">
-                  <i className="fa fa-archive mt-1"></i>
-                  <input type="file" class="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
-                </div>
-                <div className="row">
-                  <div className="col-lg-12 py-1">
-                    <TagInput
-                      className="form-control"
-                      inputProps={{ placeholder: 'Add Tags..' }}
-                      onChange={data => { setTags(data) }}
-                      values={tag}
-                    />
-                  </div>
-                </div>
-                <textarea name="project_desc" className="border w-100 p-3 mt-3 mt-lg-4" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
-                <div className="btn-grounp">
-                  <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">ADD PROJECT</button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
-      <Footer />
+            </div>
+        </section>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-md-12">
+                                    <form action="#">
+                                        <fieldset className="p-4">
+                                            <div className="form-group">
+                                                <div className="row">
+                                                    <div className="col-lg-12">
+                                                        <input type="text" placeholder="Title *" className="form-control" required 
+                                                                        name="project_title"
+                                                                        autoFocus={true}
+                                                                        onChange={handleInput}
+                                                                        value={initialValues.project_title}/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group choose-file d-inline-flex ">
+                                              <i className="fa fa-archive mt-1"></i>
+                                              <input type="file" class="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }}/>
+                                            </div>
+                                            <div className="row">
+                                                  <div className="col-lg-12 py-1">
+                                                    <TagInput
+                                                      className="form-control"
+                                                      inputProps={{ placeholder: 'Add Tags..' }}
+                                                      onChange={data => { setTags(data) }}
+                                                      values={tag}
+                                                    />
+                                                  </div>
+                                            </div>
+                                            <textarea name="project_desc" className="border w-100 p-3 mt-3 mt-lg-4" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
+                                            <div className="btn-grounp">
+                                                <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">ADD PROJECT</button>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+    <Footer/>
     </>
   );
 }
