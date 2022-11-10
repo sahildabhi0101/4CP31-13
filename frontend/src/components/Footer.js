@@ -49,22 +49,7 @@ const Footer = () => {
                         </div>
                     </div>
                     {/* <!-- Promotion --> */}
-                    <div className="col-lg-4 col-md-7">
-                        {/* <!-- App promotion --> */}
-                        <div className="block-2 app-promotion">
-                        <div className="mobile d-flex  align-items-center">
-                            <a href="index.html">
-                            {/* <!-- Icon --> */}
-                            <img src="" alt="mobile-icon"/>
-                            </a>
-                            <p className="mb-0">Get the Dealsy Mobile App and Save more</p>
-                        </div>
-                        <div className="download-btn d-flex my-3">
-                            <a href="index.html"><img src="./assets/images/apps/google-play-store.png" className="img-fluid" alt=""/></a>
-                            <a href="index.html" className=" ml-3"><img src="./assets/images/apps/apple-app-store.png" className="img-fluid" alt=""/></a>
-                        </div>
-                        </div>
-                    </div>
+                    
                     </div>
                 </div>
                 {/* <!-- Container End --> */}
@@ -72,22 +57,7 @@ const Footer = () => {
 {/* <!-- Footer Bottom --> */}
                 <footer className="footer-bottom">
                 {/* <!-- Container Start --> */}
-                <div className="container">
-                    <div className="row">
-                    <div className="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
-                        {/* <!-- Copyright --> */}
-                    </div>
-                    <div className="col-lg-6">
-                        {/* <!-- Social Icons --> */}
-                        <ul className="social-media-icons text-center text-lg-right">
-                        <li><a className="fa fa-facebook" href="https://www.facebook.com">facebook</a></li>
-                        <li><a className="fa fa-twitter" href="https://www.twitter.com/">twitter</a></li>
-                        <li><a className="fa fa-pinterest-p" href="https://www.pinterest.com/">pinterest</a></li>
-                        <li><a className="fa fa-github-alt" href="https://www.github.com/">github</a></li>
-                        </ul>
-                    </div>
-                    </div>
-                </div>
+                
                 {/*   <!-- Container End -->
                 <!-- To Top --> */}
                 <div className="scroll-top-to">

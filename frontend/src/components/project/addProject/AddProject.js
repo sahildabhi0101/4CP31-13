@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect} from "react";
 import { TagInput } from 'evergreen-ui'
 import { AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
-import "./addProject.css";
 import axios from 'axios';
 
 export default function AddProject() {
@@ -24,6 +23,7 @@ export default function AddProject() {
     setToken(JSON.parse(localStorage.getItem("Token")))
     console.log("token-", token);
   }, []);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setInitialValues((preval) => {
@@ -88,7 +88,61 @@ export default function AddProject() {
   return (
     <>
     <Navbar/>
-        <section class="page-title">
+
+    <section class="advt-post bg-gray py-5">
+    <div class="container">
+      <form action="#" method="POST">
+        <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
+          <div class="row">
+            <div class="col-lg-12">
+              <h3>Post Your ad</h3>
+            </div>
+            <div class="col-lg-6">
+              <h6 class="font-weight-bold pt-4 pb-1">Title : </h6>
+              <input type="text" class="form-control bg-white" placeholder="Add title" name="project_title" onChange={handleInput} value={initialValues.project_title}  required/>
+              <h6 class="font-weight-bold pt-4 pb-1">Description : </h6>
+              <textarea name="project_desc" class="form-control bg-white" rows="7"
+                placeholder="Write details about your project" onChange={handleInput} value={initialValues.project_desc} required></textarea>
+            </div>
+            <div class="col-lg-6">
+              <h6 class="font-weight-bold pt-4 pb-1">Technology : </h6>
+              <TagInput
+                type="text"
+                className="form-control bg-white"
+                inputProps={{ placeholder: 'Add Tags..' }}
+                onChange={data => { setTags(data) }}
+                values={tag}
+                required
+                />
+              <h6 class="font-weight-bold pt-4 pb-1">Images : </h6>
+              <div class="choose-file text-center my-2 py-4 rounded bg-white">
+                <label htmlFor="file-upload">
+                <div class="form-group choose-file d-inline-flex">
+									<i class="fa fa-picture-o text-center px-3 mt-3"></i>
+									<input type="file" class="form-control-file mt-1 mb-2 pt-1" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }}/>
+								 </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="checkbox d-inline-flex">
+          <input type="checkbox" id="terms-&-condition" class="mt-0"/>
+          <label for="terms-&-condition" class="ml-2 mt-1">By click you must agree with our
+            <span> <a class="text-success" href="terms-condition.html">Terms & Condition and Posting
+                Rules.</a></span>
+          </label>
+        </div>
+        <button type="submit" onClick={onSubmit} class="btn btn-primary d-block mt-2">Post Your Project</button>
+      </form>
+    </div>
+  </section>
+
+
+
+
+
+        {/* <section class="page-title">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 offset-md-2 text-center">
@@ -135,7 +189,7 @@ export default function AddProject() {
                                     </form>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
     <Footer/>
     </>
   );

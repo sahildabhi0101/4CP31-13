@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { ProjectCard } from './ProjectCard';
 import { useQuery } from 'react-query'
-import axios from 'axios';
+import axios from 'axios'; 
+import Footer from '../../Footer';
+import Navbar from '../../Navbar';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -33,6 +35,7 @@ export const DisplayAllProjects = () => {
   }
   return (
     <>
+    <Navbar/>
       <Container 
       my={5} p={3} px={5} 
       >
@@ -41,7 +44,6 @@ export const DisplayAllProjects = () => {
             All Projects
           </h1>
         </center>
-        
         {
           data.length > 0 ?
             data.map((project, index) => (
@@ -75,6 +77,7 @@ export const DisplayAllProjects = () => {
           </button></Col>
         </Row>
       </div>
+      <Footer/>
     </>
   );
 }

@@ -14,33 +14,11 @@ const UserProfile = () => {
 <section class="user-profile section">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-4">
-				<div class="sidebar">
-					{/* <!-- User Widget --> */}
-					<div class="widget user">
-						{/* <!-- User Image --> */}
-						<div class="image d-flex justify-content-center">
-							<img src="images/user/user-thumb.jpg" alt="" class=""/>
-						</div>
-						{/* <!-- User Name --> */}
-						<h5 class="text-center">Samanta Doe</h5>
-					</div>
-					{/* <!-- Dashboard Links --> */}
-          <div class="widget user-dashboard-menu">
-            <ul>
-              <li><a href="index.html">Savings Dashboard</a></li>
-              <li><a href="index.html">Saved Offer <span>(5)</span></a></li>
-              <li><a href="index.html">Favourite Stores <span>(3)</span></a></li>
-              <li><a href="index.html">Recommended</a></li>
-            </ul>
-          </div>
-				</div>
-			</div>
-			<div class="col-lg-8">
+			
+			<div class="col">
 				{/* <!-- Edit Profile Welcome Text --> */}
 				<div class="widget welcome-message">
 					<h2>Edit profile</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
 				</div>
 				{/* <!-- Edit Personal Info --> */}
 				<div class="row">
@@ -76,12 +54,9 @@ const UserProfile = () => {
 								  </label>
 								</div>
 								{/* <!-- Zip Code --> */}
-								<div class="form-group">
-									<label for="zip-code">Zip Code</label>
-									<input type="text" class="form-control" id="zip-code"/>
-								</div>
+								
 								{/* <!-- Submit button --> */}
-								<button class="btn btn-transparent">Save My Changes</button>
+								<button class="btn btn-primary mt-2 ">Save My Changes</button>
 							</form>
 						</div>
 					</div>
@@ -106,7 +81,7 @@ const UserProfile = () => {
 								<input type="password" class="form-control" id="confirm-password"/>
 							</div>
 							{/* <!-- Submit Button --> */}
-							<button class="btn btn-transparent">Change Password</button>
+							<button class="btn btn btn-primary mt-2">Change Password</button>
 						</form>
 					</div>
 					</div>
@@ -126,7 +101,7 @@ const UserProfile = () => {
 								<input type="email" class="form-control" id="new-email"/>
 							</div>
 							{/* <!-- Submit Button --> */}
-							<button class="btn btn-transparent">Change email</button>
+							<button class="btn btn-primary mt-2 ">Change email</button>
 						</form>
 					</div>
 					</div>

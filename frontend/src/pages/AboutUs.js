@@ -54,7 +54,7 @@ const AboutUs = () => {
                         <div className="card my-3 my-lg-0">
                         <img className="card-img-top img-fluid w-100" src={require("../images/team/team1.jpg")} alt="Card image cap"/>
                         <div className="card-body bg-gray text-center">
-                            <h5 className="card-title">John Doe</h5>
+                            <h5 className="card-title">Jay Laheri</h5>
                             <p className="card-text">Founder / CEO</p>
                         </div>
                         </div>
@@ -63,7 +63,7 @@ const AboutUs = () => {
                         <div className="card my-3 my-lg-0">
                         <img className="card-img-top img-fluid w-100" src={require("../images/team/team1.jpg")} alt="Card image cap"/>
                         <div className="card-body bg-gray text-center">
-                            <h5 className="card-title">John Doe</h5>
+                            <h5 className="card-title">Pratik Kher</h5>
                             <p className="card-text">Founder / CEO</p>
                         </div>
                         </div>
@@ -72,7 +72,7 @@ const AboutUs = () => {
                         <div className="card my-3 my-lg-0">
                         <img className="card-img-top img-fluid w-100" src={require("../images/team/team1.jpg")} alt="Card image cap"/>
                         <div className="card-body bg-gray text-center">
-                            <h5 className="card-title">John Doe</h5>
+                            <h5 className="card-title">Sahil Dabhi</h5>
                             <p className="card-text">Founder / CEO</p>
                         </div>
                         </div>
