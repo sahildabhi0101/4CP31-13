@@ -15,7 +15,6 @@ import UpdateProject from "../components/project/updateProject/UpdateProject";
 import { CategoryProjects } from "../components/project/categoryProjects/CategoryProjects";
 
 import Home from "../pages/Home";
-import ProjectDetails from "../pages/ProjectDetails";
 
 import Aboutus from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
@@ -61,7 +60,6 @@ export const MainRoute = () => {
 
 
                 <Route path="user-profile" element={<UserProfile/>} />
-                <Route path="project-details" element={<ProjectDetails/>}/>
                 <Route path="about-us" element={<Aboutus/>}/>
                 <Route path="contact-us" element={<ContactUs/>}/>
             </Routes>

@@ -13,9 +13,7 @@ const Footer = () => {
                         {/* <!-- footer logo --> */}
                         <img src="./assets/images/logo-footer.png" alt="logo"/>
                         {/*  <!-- description --> */}
-                        <p className="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p className="alt-color">Keep It Up</p>
                         </div>
                     </div>
                     {/* <!-- Link list --> */}
