@@ -30,7 +30,7 @@ const Navbar = () => {
 						<div className="col-md-12">
 							<nav className="navbar navbar-expand-lg navbar-light navigation">
 								<a className="navbar-brand" href="/">
-									<img src="./assets/images/logo.png" alt="" />
+									<img src="/assets/images/logo.png" alt="" />
 								</a>
 								<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 									aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -119,7 +119,7 @@ const Navbar = () => {
 														{JSON.parse(localStorage.getItem("NameOfUser"))}
 													</Dropdown.Item>
 													<Dropdown.Item href="/">Home</Dropdown.Item>
-													<Dropdown.Item href="/addproduct">my invest</Dropdown.Item>
+													<Dropdown.Item href="/addproduct">My invest</Dropdown.Item>
 													<Dropdown.Item href="/logout">Logout</Dropdown.Item>
 												</Dropdown.Menu>
 

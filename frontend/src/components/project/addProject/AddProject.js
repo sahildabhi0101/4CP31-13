@@ -101,43 +101,55 @@ export default function AddProject() {
       </section>
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12"></div>
             <form action="#">
               <fieldset className="p-4">
+              <div class="col-lg-12 col-md-12">
+						<div class="widget personal-info">
                 <div className="form-group">
                   <div className="row">
                     <div className="col-lg-12">
+                    <div class="form-group">
+									<label for="comunity-name">Title</label>
                       <input type="text" placeholder="Title *" className="form-control" required
                         name="project_title"
                         autoFocus={true}
                         onChange={handleInput}
                         value={initialValues.project_title} />
                     </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group choose-file d-inline-flex ">
-                  <i className="fa fa-archive mt-1"></i>
-                  <input type="file" class="form-control-file mt-0 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
+                  <i className="fa fa-archive text-center px-2 mt-0"></i>
+                  <input type="file" class="form-control-file mt-2 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
                 </div>
                 <div className="row">
                   <div className="col-lg-12 py-1">
+                  <div class="form-group">
+                    <label for="comunity-name">Tags</label>
                     <TagInput
                       className="form-control"
                       inputProps={{ placeholder: 'Add Tags..' }}
                       onChange={data => { setTags(data) }}
                       values={tag}
                     />
+                    </div>
                   </div>
                 </div>
+                <div class="form-group">
+									<label for="comunity-name">Description</label>
                 <textarea name="project_desc" className="border w-100 p-3 mt-3 mt-lg-4" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
+                </div>
                 <div className="btn-grounp">
                   <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">ADD PROJECT</button>
+                </div>
+                </div>
                 </div>
               </fieldset>
             </form>
           </div>
         </div>
-      </div>
       <Footer />
     </>
   );

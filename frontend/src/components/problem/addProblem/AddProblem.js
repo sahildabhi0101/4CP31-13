@@ -1,8 +1,9 @@
 import React from 'react'
+import Navbar from '../../Navbar';
+import Footer from '../../Footer';
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect} from "react";
 import { TagInput } from 'evergreen-ui'
-import "./addProblem.css";
 import axios from 'axios';
 import { AddAgencyProblemAPI, AddProblemAPI } from '../../../API/ProblemAPI';
 
@@ -86,53 +87,80 @@ export default function AddProblem() {
   };
 
   return (
-    <div className="write">
-      <img
-        className="writeImg"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt=""
-      />
-      <form>
-        <div className="">
-          <div className="">
-            <label htmlFor="fileInput">
-              <i className="writeIcon fas fa-plus"></i>
-            </label>
-            <input type="file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
-            <input
-              name="problem_title"
-              className="writeInput"
-              placeholder="Title"
-              type="text"
-              autoFocus={true}
-              onChange={handleInput}
-              value={initialValues.problem_title}
-            />
+    <>
+    <Navbar />
+    <section class="page-title">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 offset-md-2 text-center">
+              <h3>Add Problem Statement</h3>
+            </div>
           </div>
-          <div className="">
-            <textarea
-              name="problem_desc"
-              className="writeInput writeText"
-              placeholder="Tell your story..."
-              type="text"
-              onChange={handleInput}
-              value={initialValues.problem_desc}
-            />
-          </div>
-          <div style={{
-            display: 'block', width: "700", paddingLeft: "30"
-          }}>
-            <h4>Enter Tags of your problem</h4>
-            <TagInput
-              inputProps={{ placeholder: 'Add Names..' }}
-              onChange={data => { setTags(data) }}
-              values={tag}
-            />
-          </div>
-          <button type="submit" onClick={onSubmit} className="btn btn-primary font-weight-bold mt-3">Add problem</button>
-
         </div>
-      </form>
-    </div>
+      </section>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12"></div>
+            <form action="#">
+              <fieldset className="p-4">
+              <div class="col-lg-12 col-md-12">
+                <div class="widget personal-info">
+                    <div className="form-group">
+                      <div className="row">
+                        <div className="col-lg-12">
+                        <div class="form-group">
+                      <label for="comunity-name">Title</label>
+                      <input
+                        name="problem_title"
+                        className="form-control"
+                        placeholder="Title"
+                        type="text"
+                        autoFocus={true}
+                        onChange={handleInput}
+                        value={initialValues.problem_title}
+                      />
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group choose-file d-inline-flex ">
+                      <i className="fa fa-archive text-center px-2 mt-0"></i>
+                      <input type="file" class="form-control-file mt-2 ml-3" id="input-file" onChange={(e) => { setPhoto(e.target.files[0]) }} />
+                    </div>
+                    <div className="row">
+                      <div className="col-lg-12 py-1">
+                      <div class="form-group">
+                        <label for="comunity-name">Tags</label>
+                        <TagInput
+                          className='form-control'
+                          inputProps={{ placeholder: 'Add Tags..' }}
+                          onChange={data => { setTags(data) }}
+                          values={tag}
+                        />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="comunity-name">Description</label>
+                      <textarea
+                        name="problem_desc"
+                        className="border w-100 p-3 mt-0 mt-lg-4"
+                        placeholder="Describe your problem ..."
+                        type="text"
+                        onChange={handleInput}
+                        value={initialValues.problem_desc}
+                      />
+                    </div>
+                    <div className="btn-grounp">
+                    <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 ">ADD PROBLEM</button>
+                    </div>
+                    </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+    <Footer />
+    </>
   );
 }
