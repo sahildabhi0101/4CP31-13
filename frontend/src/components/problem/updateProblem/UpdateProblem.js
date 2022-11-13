@@ -167,7 +167,7 @@ const UpdateProblem = () => {
 									<label for="comunity-name">Description</label>
 									<textarea name="project_desc" className="border w-100 p-3 mt-2 mt-lg-2" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.problem_desc} />
 								</div>
-              <Switch onChange={handleChange} checked={va} />
+                <div class="form-group choose-file d-inline-flex "><label for="first-name">Status :&nbsp;&nbsp;&nbsp;&nbsp;</label><Switch onChange={handleChange} checked={va} /></div>
               <div className="btn-grounp">
                   <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2">UPDATE PROBLEM</button>
               </div>

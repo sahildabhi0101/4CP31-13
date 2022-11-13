@@ -40,7 +40,7 @@ export const MyProjects = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center">
-            <h3>All Projects</h3>
+            <h3>My Projects</h3>
           </div>
         </div>
       </div>

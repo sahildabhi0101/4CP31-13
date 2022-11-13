@@ -18,7 +18,8 @@ export const ProjectCard = (props) => {
                           <div class="ad-listing-content">
                               <div class="mt-2">
                                   <pre><h4 class="font-weight-bold"><strong>Title : </strong>{props.project_title}</h4></pre>
-                                  status = {props.status}
+                                  <h6 class="mt-1"><strong>Status : </strong>{props.status}</h6>
+                                  
                                   {/*   <Switch onChange={handleChange} checked={va} /> */}
                               </div>
                               <ul class="list-inline">
