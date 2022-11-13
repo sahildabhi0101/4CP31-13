@@ -6,18 +6,18 @@ import Footer from '../../Footer'
 import axios from 'axios';
 
 import {useLocation} from 'react-router-dom';
-import { ProjectCardAll } from '../displayProject/ProjectCardAll';
+import { ProblemCardAll } from '../displayProblem/ProblemCardAll'
 
-export const CategoryProjects = () => {
+export const CategoryProblems = () => {
 
   const location = useLocation();
   const [filteredData, setFilteredData] = useState([]);
   const searchValue = location.state.category;
   console.log(searchValue);
   const filterFunction = async () => {
-    const all_project = await axios.get(`/api/project/filterdata?search=${searchValue}`)
-    // console.log(all_project.data)
-    setFilteredData(all_project.data);
+    const all_problem = await axios.get(`/api/problem/filterdata?search=${searchValue}`)
+    // console.log(all_problem.data)
+    setFilteredData(all_problem.data);
   }
 
   useEffect(() => {filterFunction() } ,[searchValue])
@@ -29,7 +29,7 @@ export const CategoryProjects = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center">
-            <h3>Projects for "{searchValue}"</h3>
+            <h3>Problems for "{searchValue}"</h3>
           </div>
         </div>
       </div>
@@ -51,15 +51,15 @@ export const CategoryProjects = () => {
             </div>
             <div class="col-lg-9 col-md-8 border border-light">
             {
-              filteredData.map((project, index) => (
+              filteredData.map((problem, index) => (
                 // <Link to={`/project/${project._id}`}>
-                  <ProjectCardAll
+                  <ProblemCardAll
                     key={index}
-                    project_title={project.project_title}
-                    project_desc={project.project_desc}
-                    students={project.student}
-                    tags={project.tags}
-                    img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url  }
+                    problem_title={problem.problem_title}
+                    problem_desc={problem.problem_desc}
+                    students={problem.student}
+                    tags={problem.tags}
+                    img={problem.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : problem.image[0].url  }
                   />
                 // </Link>
               )) 

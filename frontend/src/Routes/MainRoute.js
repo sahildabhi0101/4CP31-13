@@ -13,6 +13,7 @@ import { MyProjects } from "../components/project/displayProject/MyProjects";
 import SingleProject from "../components/project/singleProject/SingleProject";
 import UpdateProject from "../components/project/updateProject/UpdateProject";
 import { CategoryProjects } from "../components/project/categoryProjects/CategoryProjects";
+import { CategoryProblems } from "../components/problem/categoryProblem/CategoryProblems";
 
 import Home from "../pages/Home";
 
@@ -56,6 +57,7 @@ export const MainRoute = () => {
                 <Route exact path="/agencyproblems" element={<MyProblems/>}></Route>
                 <Route exact path="/problem/:problem_id" element={<SingleProblem/>}></Route>
                 <Route exact path="updateproblem/:problem_id" element={<UpdateProblem/>}/>
+                <Route exact path="/categorywiseProblem" element={<CategoryProblems />} />
                 
 
 

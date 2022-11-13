@@ -2,8 +2,14 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
+let counter = 1
 const CategoryCard = (props) => {
-    
+    let str = `fa fa-shopping-basket icon-bg-${counter}`
+    counter = counter+1
+    if(counter>7){
+        counter = 1
+    }
+    console.log(props);
     const [len,setLen] = useState(0);
 
     let navigate = useNavigate();
@@ -30,7 +36,7 @@ const CategoryCard = (props) => {
         <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={()=>handleClick(props.cat)}>
                                         <div className="category-block">
                                             <div className="header">
-                                                <i className="fa fa-shopping-basket icon-bg-4"></i>
+                                                <i className={str}></i>
                                                 <h4>{props.cat}</h4>
                                             </div>
                                             <ul className="category-list">
