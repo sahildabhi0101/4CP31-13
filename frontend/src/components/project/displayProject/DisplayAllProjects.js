@@ -24,6 +24,7 @@ export const DisplayAllProjects = () => {
       keepPreviousData: true
     }
   )
+  console.log(data);
 
   const [filteredData,setFilteredData] = useState([]);
   const [searchValue,setsearchValue] = useState("");
@@ -75,6 +76,7 @@ export const DisplayAllProjects = () => {
                     // <Link to={`/project/${project._id}`}>
                       <ProjectCardAll
                         key={index}
+                        project_id={project._id}
                         project_title={project.project_title}
                         project_desc={project.project_desc}
                         students={project.student}
