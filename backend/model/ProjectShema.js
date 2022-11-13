@@ -24,6 +24,11 @@ const projectSchema = new mongoose.Schema(
         default: ''
       }
     }],
+    status:{
+      type: String,
+      trim: true,
+      default:'active'
+    },
     tags: [
       {
         type: String,

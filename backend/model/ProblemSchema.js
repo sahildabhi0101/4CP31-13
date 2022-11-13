@@ -31,6 +31,11 @@ const problemSchema = new mongoose.Schema(
         default: ''
       }
     }],
+    status:{
+      type: String,
+      trim: true,
+      default:'active'
+    },
     solution_id: [
       {
         type: String,
