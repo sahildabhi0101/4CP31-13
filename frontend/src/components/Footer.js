@@ -11,9 +11,8 @@ const Footer = () => {
                         {/* <!-- About --> */}
                         <div className="block about">
                         {/* <!-- footer logo --> */}
-                        <img src="/assets/images/logo-footer.png" alt="logo"/>
+                        <img src="/assets/images/up_the_startups_logo_1.png" alt="logo"/>
                         {/*  <!-- description --> */}
-                        <p className="alt-color">Keep It Up</p>
                         </div>
                     </div>
                     {/* <!-- Link list --> */}
