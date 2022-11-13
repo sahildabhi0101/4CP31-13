@@ -9,7 +9,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import { ProblemCardAll } from './ProblemCardAll';
 
-
 var tpage = 1;
 const fetchProblems = async (pageNumber, limit = 4) => {
   const get_stories = await axios.get(`/api/problem/problembypage?page=${pageNumber}&&limit=${limit}`)
@@ -51,7 +50,7 @@ const DisplayAllProblems = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-8 offset-md-2 text-center">
-              <h3>All Projects</h3>
+              <h3>All Problems</h3>
             </div>
           </div>
         </div>
