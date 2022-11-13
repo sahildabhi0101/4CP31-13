@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getCookie } from "react-use-cookie";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
+import Switch from "react-switch";
 
 import {UpdateStudentProject } from "../../../API/ProjectAPI";
 import axios from 'axios';
@@ -19,6 +20,10 @@ const initialValues = {
 
 
 export default function UpdateProject() {
+  const handleChange = () => {
+    setva(!va)
+
+  }
   const { project_id } = useParams();
   const navigate = useNavigate();
   const [token, setToken] = useState("");
@@ -28,6 +33,8 @@ export default function UpdateProject() {
   })
   const [tag, setTags] = useState([]);
   const [photo,setPhoto] = React.useState("");
+  const [va,setva] = useState(true);
+
   useEffect(() => {
     fetchProject();
     console.log("token-", token);
@@ -46,6 +53,7 @@ export default function UpdateProject() {
     // console.log('project', initialValues.project_title, initialValues.project_desc, initialValues.tags)
     setTags(project.data.userdata.project_id.tags)
     setPhoto(project.data.userdata.project_id.image[0].url)
+    setva(project.data.userdata.project_id.status)
   }
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -76,7 +84,13 @@ export default function UpdateProject() {
       body: data
     })
     const file = await res.json();
-
+    let status
+    if(va === true){
+      status = 'active'
+    }
+    else{
+      status = 'inactive'
+    }
     const updateData = {
       project_title: initialValues.project_title,
       project_desc: initialValues.project_desc,
@@ -85,6 +99,7 @@ export default function UpdateProject() {
         url: file.url,
         public_id: file.public_id
       },
+      status: status
     };
     console.log("update",updateData)
     const isUpdate = await UpdateStudentProject(project_id, updateData)
@@ -154,6 +169,7 @@ export default function UpdateProject() {
 									<label for="comunity-name">Description</label>
 									<textarea name="project_desc" className="border w-100 p-3 mt-2 mt-lg-2" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
 								</div>
+              <Switch onChange={handleChange} checked={va} />
               <div className="btn-grounp">
                   <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2">UPDATE PROJECT</button>
               </div>

@@ -7,12 +7,19 @@ import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
 import {UpdateAgencyProblem} from "../../../API/ProblemAPI";
 import axios from "axios"
+import Switch from "react-switch";
 
 const initialValues = {
     problem_title:"",
     problem_desc:"",
 }
 const UpdateProblem = () => {
+
+  const handleChange = () => {
+    setva(!va)
+
+  }
+
     const { problem_id } = useParams();
   const navigate = useNavigate();
   const [token, setToken] = useState("");
@@ -20,6 +27,7 @@ const UpdateProblem = () => {
     problem_title: '',
     problem_desc: '',
   })
+  const [va,setva] = useState(true);
   const [tag, setTags] = useState([]);
   const [photo,setPhoto] = React.useState("");
   useEffect(() => {
@@ -40,6 +48,7 @@ const UpdateProblem = () => {
     // console.log('project', initialValues.project_title, initialValues.project_desc, initialValues.tags)
     setTags(problem.data.userData.problem_id.tags)
     setPhoto(problem.data.userData.problem_id.image[0].url)
+    setva(problem.data.userdata.problem_id.status)
   }
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -70,7 +79,13 @@ const UpdateProblem = () => {
       body: data
     })
     const file = await res.json();
-
+    let status
+    if(va === true){
+      status = 'active'
+    }
+    else{
+      status = 'inactive'
+    }
     const updateData = {
       project_title: initialValues.problem_title,
       project_desc: initialValues.problem_desc,
@@ -79,6 +94,7 @@ const UpdateProblem = () => {
         url: file.url,
         public_id: file.public_id
       },
+      status: status
     };
     console.log("update",updateData)
     const isUpdate = await UpdateAgencyProblem(problem_id, updateData)
@@ -151,6 +167,7 @@ const UpdateProblem = () => {
 									<label for="comunity-name">Description</label>
 									<textarea name="project_desc" className="border w-100 p-3 mt-2 mt-lg-2" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.problem_desc} />
 								</div>
+              <Switch onChange={handleChange} checked={va} />
               <div className="btn-grounp">
                   <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2">UPDATE PROBLEM</button>
               </div>

@@ -64,7 +64,7 @@ export const GetProblemAPI = async ({ problem_id }) => {
 
 export const UpdateAgencyProblem = async (problem_id, updateData) => {
   try {
-    const url = `/api/problem/updateagencyproblem/${problem_id}`;
+    const url = `/api/problem/updateproblem/${problem_id}`;
     console.log('updatedata', updateData)
     const response = await axios.put(url, updateData);
     const data = response.data;
