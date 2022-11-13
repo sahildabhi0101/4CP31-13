@@ -39,13 +39,16 @@ const Login = () => {
         const response = await LoginAPI(body,select);
 
         console.log(response);
-        localStorage.setItem("Token",JSON.stringify(response.token));
-        localStorage.setItem("NameOfUser", JSON.stringify(response.detail.name));
-
-        // check response status and show message accoringly
-        // TODO
-
-        navigate("/");
+        if(response)
+        {
+            localStorage.setItem("Token",JSON.stringify(response.token));
+            localStorage.setItem("NameOfUser", JSON.stringify(response.detail.name));
+            navigate("/");
+        }
+        else
+        {
+            alert("please enter correct credentials");
+        }
     };
     return (
         <>

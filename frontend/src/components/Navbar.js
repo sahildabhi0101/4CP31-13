@@ -29,7 +29,7 @@ const Navbar = () => {
 					<div className="row">
 						<div className="col-md-12">
 							<nav className="navbar navbar-expand-lg navbar-light navigation">
-								<a className="navbar-brand" href="index.html">
+								<a className="navbar-brand" href="/">
 									<img src="./assets/images/logo.png" alt="" />
 								</a>
 								<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -37,10 +37,11 @@ const Navbar = () => {
 									<span className="navbar-toggler-icon"></span>
 								</button>
 								<div className="collapse navbar-collapse" id="navbarSupportedContent">
-									<ul className="navbar-nav ml-auto main-nav ">
+									<ul className="navbar-nav main-nav ms-auto order-0">
 										<li className="nav-item active">
 											<a className="nav-link" href="/">Home</a>
 										</li>
+										
 										<li className="nav-item dropdown dropdown-slide @@dashboard">
 											<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i className="fa fa-angle-down"></i></span>
 											</a>
@@ -69,8 +70,6 @@ const Navbar = () => {
 											</a>
 											{/* <!-- Dropdown list --> */}
 											<ul className="dropdown-menu">
-												<li><a className="dropdown-item @@about" href="about-us">About Us</a></li>
-												<li><a className="dropdown-item @@contact" href="contact-us">Contact Us</a></li>
 												<li><a className="dropdown-item @@profile" href="user-profile">User Profile</a></li>
 												<li><a className="dropdown-item @@404" href="404.html">404 Page</a></li>
 												<li><a className="dropdown-item @@package" href="package.html">Package</a></li>
@@ -81,24 +80,11 @@ const Navbar = () => {
 												<li><a className="dropdown-item @@terms" href="terms-condition.html">Terms &amp; Conditions</a></li>
 											</ul>
 										</li>
-										<li className="nav-item dropdown dropdown-slide @@listing">
-											<a className="nav-link dropdown-toggle" href="/#" data-toggle="dropdown" aria-expanded="false">
-												Listing <span><i className="fa fa-angle-down"></i></span>
-											</a>
-											{/* <!-- Dropdown list --> */}
-											<ul className="dropdown-menu">
-												<li><a className="dropdown-item @@category" href="category.html">Ad-Gird View</a></li>
-												<li><a className="dropdown-item @@listView" href="ad-list-view.html">Ad-List View</a></li>
-
-												<li className="dropdown dropdown-submenu dropleft">
-													<a className="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-													<ul className="dropdown-menu" aria-labelledby="dropdown0201">
-														<li><a className="dropdown-item" href="index.html">Submenu 01</a></li>
-														<li><a className="dropdown-item" href="index.html">Submenu 02</a></li>
-													</ul>
-												</li>
-											</ul>
+										<li className="nav-item">
+											<a className="nav-link" href="about-us">About Us</a>
+										</li>
+										<li className="nav-item">
+											<a className="nav-link" href="contact-us">Contact Us</a>
 										</li>
 									</ul>
 
@@ -115,7 +101,7 @@ const Navbar = () => {
 													<Dropdown.Item >
 														<Avatar textSizeRatio={2} size="100" round={true} name={JSON.parse(localStorage.getItem("NameOfUser"))} />
 													</Dropdown.Item>
-													<Dropdown.Item className="dropdown-item" style={{ alignContent:'center' }}>
+													<Dropdown.Item className="dropdown-item" style={{ alignContent:'center' }} href="user-profile">
 														{JSON.parse(localStorage.getItem("NameOfUser"))}
 													</Dropdown.Item>
 													<Dropdown.Item href="/">Home</Dropdown.Item>
@@ -167,7 +153,7 @@ const Navbar = () => {
 											)}
 										</Dropdown>
 									) : (
-										<ul className="navbar-nav ml-auto mt-10">
+										<ul className="navbar-nav ml-3">
 											<li className="nav-item">
 												<Link className="nav-link login-button" to="/login">Login</Link>
 											</li>

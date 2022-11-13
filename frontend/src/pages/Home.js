@@ -3,6 +3,7 @@ import Categories from '../components/Categories'
 import Footer from '../components/Footer'
 import HeroBanner from '../components/HeroBanner'
 import LatestProjects from '../components/LatestProjects'
+import Loading from '../components/Loading/loading'
 import Navbar from '../components/Navbar'
 
 const Home = () => {

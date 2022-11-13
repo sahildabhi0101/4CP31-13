@@ -1,111 +1,75 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useQuery } from 'react-query'
+import Navbar from '../../Navbar'
+import Footer from '../../Footer'
 import axios from 'axios';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import {useLocation} from 'react-router-dom';
-import { ProjectCard } from '../displayProject/ProjectCard';
 
-var tpage = 1;
-const fetchProjects = async (pageNumber, limit = 4) => {
-  const get_stories = await axios.get(`/api/project/projectbypage?page=${pageNumber}&&limit=${limit}`)
-  // console.log(get_stories.data.projectWithStudent)
-  tpage = get_stories.data.totalPage
-  return get_stories.data.projectWithStudent;
-}
+import {useLocation} from 'react-router-dom';
+import { ProjectCardAll } from '../displayProject/ProjectCardAll';
 
 export const CategoryProjects = () => {
 
-    const location = useLocation();
-  const [pageNumber, setPageNumber] = useState(1)
-  const { isLoading, isError, error, data, isFetching } = useQuery(
-    ['colors', pageNumber],
-    () => fetchProjects(pageNumber),
-    {
-      keepPreviousData: true
-    }
-  )
-  
-  const [filteredData,setFilteredData] = useState([]);
-//   const [searchValue,setsearchValue] = useState("");
-//   setsearchValue(location.state.category);
-const searchValue = location.state.category;
+  const location = useLocation();
+  const [filteredData, setFilteredData] = useState([]);
+  const searchValue = location.state.category;
   const filterFunction = async () => {
     const all_project = await axios.get(`/api/project/filterdata?search=${searchValue}`)
-    console.log(all_project.data) 
+    console.log(all_project.data)
     setFilteredData(all_project.data);
   }
 
   useEffect(() => {filterFunction() } ,[searchValue])
   
-  if (isLoading) {
-    return <h2>Loading...</h2>
-  }
-  if (isError) {
-    return <h2>{error.message}</h2>
-  }
   return (
     <>
-      <Container 
-      my={5} p={3} px={5} 
-      >
-        <center>
-          <h1 size={'xl'}>
-            All Projects
-          </h1>
-        </center>
-        {/* <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setsearchValue(e.target.value)}}  placeholder="Search via TAGS" /> */}
-        {searchValue !== ""
-        ? 
-          filteredData.map((project, index) => (
-            // <Link to={`/project/${project._id}`}>
-              <ProjectCard
-                key={index}
-                project_title={project.project_title}
-                project_desc={project.project_desc}
-                students={project.student}
-                tags={project.tags}
-                img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url  }
-              />
-            // </Link>
-          )) 
-         :
-
-
-          data.length > 0 ?
-            data.map((project, index) => (
-              // <Link to={`/project/${project._id}`}>
-                <ProjectCard
-                  key={index}
-                  project_title={project.project_title}
-                  project_desc={project.project_desc}
-                  students={project.student}
-                  tags={project.tags}
-                  img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
-                />
-              // {/* </Link> */}
-            
-            ))
-             : "hey sahil"
-        }
-       
-      </Container>
-      <div>
-        <Row>
-          <Col><button  variant='outline'
-            onClick={() => setPageNumber(page => page - 1)}
-            disabled={pageNumber === 1}>
-            Prev Page
-          </button></Col>
-          <Col><button variant='outline'
-            onClick={() => setPageNumber(page => page + 1)}
-            disabled={pageNumber === tpage}>
-            Next Page
-          </button></Col>
-        </Row>
+    <Navbar/>
+    <section className="page-title">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-8 offset-md-2 text-center">
+            <h3>Projects for "{searchValue}"</h3>
+          </div>
+        </div>
       </div>
+    </section>
+    <div class="container mt-3">
+          <div class="row">
+            <div class="col-lg-3 col-md-4 ">
+              <div class="category-sidebar ">
+                <div class="widget category-list border border-dark">
+                  <h4 class="widget-header">All Category</h4>
+                    <ul class="category-list">
+                      <li><a href="category.html">Laptops <span>93</span></a></li>
+                      <li><a href="category.html">Iphone <span>233</span></a></li>
+                      <li><a href="category.html">Microsoft  <span>183</span></a></li>
+                      <li><a href="category.html">Monitors <span>343</span></a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-8 border border-light">
+            {
+              filteredData.map((project, index) => (
+                // <Link to={`/project/${project._id}`}>
+                  <ProjectCardAll
+                    key={index}
+                    project_title={project.project_title}
+                    project_desc={project.project_desc}
+                    students={project.student}
+                    tags={project.tags}
+                    img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url  }
+                  />
+                // </Link>
+              )) 
+            }
+            </div>
+          </div>
+        </div>
+        <br>
+        </br>
+        <br></br>
+      <Footer/>
     </>
   );
 }

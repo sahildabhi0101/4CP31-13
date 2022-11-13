@@ -45,7 +45,7 @@ const ContactUs = () => {
                                                 </div>
                                             <textarea name="message" id=""  placeholder="Message *" className="border w-100 p-3 mt-3 mt-lg-4"></textarea>
                                             <div className="btn-grounp">
-                                                <button type="submit" className="btn btn-primary mt-2 float-right">SUBMIT</button>
+                                                <button type="submit" className="btn btn-primary mt-2 float-right" onClick={onsubmit}>SUBMIT</button>
                                             </div>
                                         </fieldset>
                                     </form>

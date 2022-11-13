@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
 import { AddProjectAPI, AddStudentProjectAPI } from "../../../API/ProjectAPI";
-import "./addProject.css";
 import axios from 'axios';
 
+// toast.configure()
 export default function AddProject() {
+
   const navigate = useNavigate();
   const [token, setToken] = useState("");
   const [initialValues, setInitialValues] = useState({
@@ -24,6 +25,7 @@ export default function AddProject() {
     setToken(JSON.parse(localStorage.getItem("Token")))
     console.log("token-", token);
   }, []);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setInitialValues((preval) => {
@@ -80,8 +82,8 @@ export default function AddProject() {
     if (!projectAdded || !studentProjectAdded) {
       alert("Something went wrong!");
     } else {
-      // To redirect writtern blog
-      // navigate(`/project/${project_id}`);
+      alert("project added successfully!");
+      navigate(`/project/${project_id}`);
     }
   };
 

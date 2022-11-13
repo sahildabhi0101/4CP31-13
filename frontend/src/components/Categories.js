@@ -6,11 +6,14 @@ import CategoryCard from './CategoryCard';
 const Categories = () => {
     let navigate = useNavigate();
     const handleClick = (Cat) => {
-        
+
         // setCategory(cat)
         // setCookie('category', category, { path: '/' });
-        const path='/categorywiseProject'
-        navigate(path,{state:{id:1,category:Cat}})
+        const path = '/categorywiseProject'
+        navigate(path, { state: { id: 1, category: Cat } })
+    }
+    const handleClick1 = () => {
+        navigate("/display-projects")
     }
   return (
     <section className=" section">
@@ -46,75 +49,74 @@ const Categories = () => {
                                         </div>
                                     </div> {/* <!-- /Category List -->
                                     <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                        <div className="category-block">
-                                            <div className="header">
-                                                <i className="fa fa-briefcase icon-bg-5"></i>
-                                                <h4>Jobs</h4>
-                                            </div>
-                                            <ul className="category-list">
-                                                <li><a href="category.html">It Jobs <span>93</span></a></li>
-                                                <li><a href="category.html">Cleaning & Washing <span>233</span></a></li>
-                                                <li><a href="category.html">Management <span>183</span></a></li>
-                                                <li><a href="category.html">Voluntary Works <span>343</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                        <div className="category-block">
-                                            <div className="header">
-                                                <i className="fa fa-car icon-bg-6"></i>
-                                                <h4>Vehicles</h4>
-                                            </div>
-                                            <ul className="category-list">
-                                                <li><a href="category.html">Bus <span>193</span></a></li>
-                                                <li><a href="category.html">Cars <span>23</span></a></li>
-                                                <li><a href="category.html">Motobike <span>33</span></a></li>
-                                                <li><a href="category.html">Rent a car <span>73</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                        <div className="category-block">
-                                            <div className="header">
-                                                <i className="fa fa-paw icon-bg-7"></i>
-                                                <h4>Pets</h4>
-                                            </div>
-                                            <ul className="category-list">
-                                                <li><a href="category.html">Cats <span>65</span></a></li>
-                                                <li><a href="category.html">Dogs <span>23</span></a></li>
-                                                <li><a href="category.html">Birds <span>113</span></a></li>
-                                                <li><a href="category.html">Others <span>43</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                        <div className="category-block">
-
-                                            <div className="header">
-                                                <i className="fa fa-laptop icon-bg-8"></i>
-                                                <h4>Services</h4>
-                                            </div>
-                                            <ul className="category-list">
-                                                <li><a href="category.html">Cleaning <span>93</span></a></li>
-                                                <li><a href="category.html">Car Washing <span>233</span></a></li>
-                                                <li><a href="category.html">Clothing <span>183</span></a></li>
-                                                <li><a href="category.html">Business <span>343</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div> {/* <!-- /Category List --> */}
-
-
+                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                <div className="category-block">
+                                    <div className="header">
+                                        <i className="fa fa-briefcase icon-bg-5"></i>
+                                        <h4>Jobs</h4>
+                                    </div>
+                                    <ul className="category-list">
+                                        <li><a href="category.html">It Jobs <span>93</span></a></li>
+                                        <li><a href="category.html">Cleaning & Washing <span>233</span></a></li>
+                                        <li><a href="category.html">Management <span>183</span></a></li>
+                                        <li><a href="category.html">Voluntary Works <span>343</span></a></li>
+                                    </ul>
                                 </div>
-                            </div>
+                            </div> {/* <!-- /Category List -->
+                                    <!-- Category list --> */}
+                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                <div className="category-block">
+                                    <div className="header">
+                                        <i className="fa fa-car icon-bg-6"></i>
+                                        <h4>Vehicles</h4>
+                                    </div>
+                                    <ul className="category-list">
+                                        <li><a href="category.html">Bus <span>193</span></a></li>
+                                        <li><a href="category.html">Cars <span>23</span></a></li>
+                                        <li><a href="category.html">Motobike <span>33</span></a></li>
+                                        <li><a href="category.html">Rent a car <span>73</span></a></li>
+                                    </ul>
+                                </div>
+                            </div> {/* <!-- /Category List -->
+                                    <!-- Category list --> */}
+                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
+                                <div className="category-block">
+                                    <div className="header">
+                                        <i className="fa fa-paw icon-bg-7"></i>
+                                        <h4>Pets</h4>
+                                    </div>
+                                    <ul className="category-list">
+                                        <li><a href="category.html">Cats <span>65</span></a></li>
+                                        <li><a href="category.html">Dogs <span>23</span></a></li>
+                                        <li><a href="category.html">Birds <span>113</span></a></li>
+                                        <li><a href="category.html">Others <span>43</span></a></li>
+                                    </ul>
+                                </div>
+                            </div> {/* <!-- /Category List -->
+                                    <!-- Category list --> */}
+                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={handleClick1}>
+                                <div className="category-block">
+                                    <div className="header">
+                                        <i className="fa fa-laptop icon-bg-8"></i>
+                                        <h4>See More</h4>
+                                    </div>
+                                    <ul className="category-list">
+                                        <li><a href="category.html">Cleaning <span>93</span></a></li>
+                                        <li><a href="category.html">Car Washing <span>233</span></a></li>
+                                        <li><a href="category.html">Clothing <span>183</span></a></li>
+                                        <li><a href="category.html">Business <span>343</span></a></li>
+                                    </ul>
+                                </div>
+                            </div> {/* <!-- /Category List --> */}
+
+
                         </div>
                     </div>
-                    {/* <!-- Container End --> */}
-                </section>
-  )
+                </div>
+            </div>
+            {/* <!-- Container End --> */}
+        </section>
+    )
 }
 
 export default Categories
