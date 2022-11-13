@@ -27,18 +27,18 @@ const CategoryCard = (props) => {
     console.log("len=",len)
       useEffect(() => {filterFunction() })
     return (
-        <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" >
-            {/* <a href="categorywiseProject"> */}
-            <div className="category-block">
-                <div className="header">
-                    <i className="fa fa-laptop icon-bg-1"></i>
-                    <h4>{props.cat}</h4>
-                </div>
-                <h4>total : {len}</h4>
-                <button onClick={()=>handleClick(props.cat)}>see all</button>
-            </div>
-            {/* </a> */}
-        </div>
+        <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={()=>handleClick(props.cat)}>
+                                        <div className="category-block">
+                                            <div className="header">
+                                                <i className="fa fa-shopping-basket icon-bg-4"></i>
+                                                <h4>{props.cat}</h4>
+                                            </div>
+                                            <ul className="category-list">
+                                                <li>Total Projects: <span>{len}</span></li>
+                                            </ul>
+                                        </div>
+                                    </div> 
+
     )
 }
 

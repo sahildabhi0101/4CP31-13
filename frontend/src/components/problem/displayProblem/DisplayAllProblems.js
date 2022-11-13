@@ -51,7 +51,7 @@ const DisplayAllProblems = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-8 offset-md-2 text-center">
-            <h3>All Projects</h3>
+            <h3>All Problems</h3>
           </div>
         </div>
       </div>
@@ -106,20 +106,19 @@ const DisplayAllProblems = () => {
                 ))
                 : "hey jay"
             }
-      <div>
-        <Row>
-          <Col><button  variant='outline'
-            onClick={() => setPageNumber(page => page - 1)}
-            disabled={pageNumber === 1}>
-            Prev Page
-          </button></Col>
-          <Col><button variant='outline'
-            onClick={() => setPageNumber(page => page + 1)}
-            disabled={pageNumber === tpage}>
-            Next Page
-          </button></Col>
-        </Row>
-      </div>
+            <div class="pagination justify-content-center py-4">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <button  class="btn btn-primary" onClick={() => setPageNumber(page => page - 1)} disabled={pageNumber === 1}>Previous</button>
+                    </li>
+                    <li class="page-item">
+                      <button class="btn btn-primary" onClick={() => setPageNumber(page => page + 1)}disabled={pageNumber === tpage}>Next</button>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+      
       </div>
       </div>
       </div>
