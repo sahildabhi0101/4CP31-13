@@ -23,92 +23,19 @@ const Categories = () => {
                             <div className="col-12">
                                 {/* <!-- Section title --> */}
                                 <div className="section-title">
-                                    <h2>All Categories</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
+                                    <h2>Categories</h2>
                                 </div>
                                 <div className="row">
                                     {/* <!-- Category list --> */}
 
-                                    <CategoryCard onClick={() => handleClick('html')} cat='html'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='react'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='node'/>
-
-                                    
-                                    <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                        <div className="category-block">
-                                            <div className="header">
-                                                <i className="fa fa-shopping-basket icon-bg-4"></i>
-                                                <h4>Shoppings</h4>
-                                            </div>
-                                            <ul className="category-list">
-                                                <li><a href="category.html">Mens Wears <span>53</span></a></li>
-                                                <li><a href="category.html">Accessories <span>212</span></a></li>
-                                                <li><a href="category.html">Kids Wears <span>133</span></a></li>
-                                                <li><a href="category.html">It & Software <span>143</span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                <div className="category-block">
-                                    <div className="header">
-                                        <i className="fa fa-briefcase icon-bg-5"></i>
-                                        <h4>Jobs</h4>
-                                    </div>
-                                    <ul className="category-list">
-                                        <li><a href="category.html">It Jobs <span>93</span></a></li>
-                                        <li><a href="category.html">Cleaning & Washing <span>233</span></a></li>
-                                        <li><a href="category.html">Management <span>183</span></a></li>
-                                        <li><a href="category.html">Voluntary Works <span>343</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                <div className="category-block">
-                                    <div className="header">
-                                        <i className="fa fa-car icon-bg-6"></i>
-                                        <h4>Vehicles</h4>
-                                    </div>
-                                    <ul className="category-list">
-                                        <li><a href="category.html">Bus <span>193</span></a></li>
-                                        <li><a href="category.html">Cars <span>23</span></a></li>
-                                        <li><a href="category.html">Motobike <span>33</span></a></li>
-                                        <li><a href="category.html">Rent a car <span>73</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                                <div className="category-block">
-                                    <div className="header">
-                                        <i className="fa fa-paw icon-bg-7"></i>
-                                        <h4>Pets</h4>
-                                    </div>
-                                    <ul className="category-list">
-                                        <li><a href="category.html">Cats <span>65</span></a></li>
-                                        <li><a href="category.html">Dogs <span>23</span></a></li>
-                                        <li><a href="category.html">Birds <span>113</span></a></li>
-                                        <li><a href="category.html">Others <span>43</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> {/* <!-- /Category List -->
-                                    <!-- Category list --> */}
-                            <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={handleClick1}>
-                                <div className="category-block">
-                                    <div className="header">
-                                        <i className="fa fa-laptop icon-bg-8"></i>
-                                        <h4>See More</h4>
-                                    </div>
-                                    <ul className="category-list">
-                                        <li><a href="category.html">Cleaning <span>93</span></a></li>
-                                        <li><a href="category.html">Car Washing <span>233</span></a></li>
-                                        <li><a href="category.html">Clothing <span>183</span></a></li>
-                                        <li><a href="category.html">Business <span>343</span></a></li>
-                                    </ul>
-                                </div>
-                            </div> {/* <!-- /Category List --> */}
-
+                                    <CategoryCard onClick={() => handleClick('html')} cat='MERN Stack'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Blockchain'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='AR/VR'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Machine Learning'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='DotNet'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Cloud'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Python'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='React'/>
 
                         </div>
                     </div>

@@ -15,7 +15,7 @@ export const CategoryProjects = () => {
   const searchValue = location.state.category;
   const filterFunction = async () => {
     const all_project = await axios.get(`/api/project/filterdata?search=${searchValue}`)
-    console.log(all_project.data)
+    // console.log(all_project.data)
     setFilteredData(all_project.data);
   }
 

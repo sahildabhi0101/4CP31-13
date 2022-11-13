@@ -70,6 +70,14 @@ export const DisplayAllProjects = () => {
               </div>
             </div>
             <div class="col-lg-9 col-md-8 border border-light">
+            <div class="category-search-filter">
+					<div class="row">
+						<div class="col-md-6 text-center text-md-left">
+							<strong>Search By Tags: </strong>
+              {/* <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setSearchValue(e.target.value)}}  placeholder="Search via TAGS" /> */}
+						</div>
+					</div>
+				</div>
             {
                 data.length > 0 ?
                   data.map((project, index) => (

@@ -42,28 +42,6 @@ const Navbar = () => {
 											<a className="nav-link" href="/">Home</a>
 										</li>
 										
-										<li className="nav-item dropdown dropdown-slide @@dashboard">
-											<a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i className="fa fa-angle-down"></i></span>
-											</a>
-
-											{/* <!-- Dropdown list --> */}
-											<ul className="dropdown-menu">
-												<Link className="dropdown-item @@dashboardPage" to={"/display-projects"}>Display All project</Link>
-												<Link className="dropdown-item @@dashboardMyAds" to={"/display-problems"}>Display ALl Problems</Link>
-												<li><a className="dropdown-item @@dashboardFavouriteAds" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a></li>
-												<li><a className="dropdown-item @@dashboardArchivedAds" href="dashboard-archived-ads.html">Dashboard Archived Ads</a></li>
-												<li><a className="dropdown-item @@dashboardPendingAds" href="dashboard-pending-ads.html">Dashboard Pending Ads</a></li>
-
-												<li className="dropdown dropdown-submenu dropright">
-													<a className="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-													<ul className="dropdown-menu" aria-labelledby="dropdown0501">
-														<li><a className="dropdown-item" href="index.html">Submenu 01</a></li>
-														<li><a className="dropdown-item" href="index.html">Submenu 02</a></li>
-													</ul>
-												</li>
-											</ul>
-										</li>
 										<li className="nav-item dropdown dropdown-slide @@pages">
 											<a className="nav-link dropdown-toggle" href="/#" data-toggle="dropdown" aria-expanded="false">
 												Pages <span><i className="fa fa-angle-down"></i></span>
@@ -71,14 +49,13 @@ const Navbar = () => {
 											{/* <!-- Dropdown list --> */}
 											<ul className="dropdown-menu">
 												<li><a className="dropdown-item @@profile" href="user-profile">User Profile</a></li>
-												<li><a className="dropdown-item @@404" href="404.html">404 Page</a></li>
-												<li><a className="dropdown-item @@package" href="package.html">Package</a></li>
-												<li><a className="dropdown-item @@singlePage" href="project-details">ProjectDetails</a></li>
-												<li><a className="dropdown-item @@store" href="store.html">Store Single</a></li>
-												<li><a className="dropdown-item @@blog" href="blog.html">Blog</a></li>
-												<li><a className="dropdown-item @@singleBlog" href="single-blog.html">Blog Details</a></li>
-												<li><a className="dropdown-item @@terms" href="terms-condition.html">Terms &amp; Conditions</a></li>
 											</ul>
+										</li>
+										<li className="nav-item">
+											<Link className="nav-link" to={"/display-projects"}>Projects</Link>
+										</li>
+										<li className="nav-item">
+										<Link className="nav-link" to={"/display-problems"}>Problems</Link>
 										</li>
 										<li className="nav-item">
 											<a className="nav-link" href="about-us">About Us</a>
