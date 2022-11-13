@@ -9,8 +9,8 @@ const HeroBanner = () => {
 			<div className="col-md-12">
 				{/* <!-- Header Contetnt --> */}
 				<div className="content-block">
-					<h1>Buy & Sell Near You </h1>
-					<p>Join the millions who buy and sell from each other <br/> everyday in local communities around the world</p>
+					<h1>Up The Startups</h1>
+					<p>Join the millions <br/> everyday in local communities around the world</p>
 					<div className="short-popular-category-list text-center">
 						<h2>Popular Category</h2>
 						<ul className="list-inline">

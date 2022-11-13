@@ -74,28 +74,44 @@ export const DisplayAllProjects = () => {
 					<div class="row">
 						<div class="col-md-6 text-center text-md-left">
 							<strong>Search By Tags: </strong>
-              {/* <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setSearchValue(e.target.value)}}  placeholder="Search via TAGS" /> */}
+              <input type="text" style={{border:"2px solid black"}} onChange={(e) =>{ setsearchValue(e.target.value)}}  placeholder="Search via TAGS" />
 						</div>
 					</div>
 				</div>
             {
+                searchValue !== ""
+                ?
+                filteredData.map((project, index) => (
+                  // <Link to={`/project/${project._id}`}>
+                  <ProjectCardAll
+                    key={index}
+                    project_id={project._id}
+                    project_title={project.project_title}
+                    project_desc={project.project_desc}
+                    students={project.student}
+                    tags={project.tags}
+                    img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
+                  />
+                  // </Link>
+                ))
+                :
                 data.length > 0 ?
                   data.map((project, index) => (
                     // <Link to={`/project/${project._id}`}>
-                      <ProjectCardAll
-                        key={index}
-                        project_id={project._id}
-                        project_title={project.project_title}
-                        project_desc={project.project_desc}
-                        students={project.student}
-                        tags={project.tags}
-                        status={project.status}
-                        img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
-                      />
-                    // {/* </Link> */}
-                  
+                    <ProjectCardAll
+                      key={index}
+                      problem_id={project._id}
+                      problem_title={project.problem_title}
+                      problem_desc={project.problem_desc}
+                      students={project.student}
+                      tags={project.tags}
+                      // img= {'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'}
+                      img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
+                    />
+                    // </Link>
+
                   ))
-                  : "hey sahil"
+                  : "hey jay"
               }
               {/* <!-- ad listing list  --> */}
           
