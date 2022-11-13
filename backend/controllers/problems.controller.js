@@ -260,7 +260,7 @@ module.exports = {
 	},
 	oneProblemAgency: async (req, res) => {
 		try{
-			const oneProblem = await AgencyProblemSchema.findOne({ $ans: [{ agency_id: req.user._id},{project_id: req.params.problem_id}]}).populate('problem_id')
+			const oneProblem = await AgencyProblemSchema.findOne({ $and: [{ agency_id: req.user._id},{problem_id: req.params.problem_id}]}).populate('problem_id')
 			console.log('agency problem',oneProblem, req.user)
 			res.status(200).json({
 				message: 'all agency problems.',

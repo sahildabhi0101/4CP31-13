@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
 
 export const ProjectCard = (props) => {
-    // console.log(props);
+    console.log(props);
+
     return (
         <>
           <div class="ad-listing-list mt-20">
@@ -17,6 +18,8 @@ export const ProjectCard = (props) => {
                           <div class="ad-listing-content">
                               <div class="mt-2">
                                   <pre><h4 class="font-weight-bold"><strong>Title : </strong>{props.project_title}</h4></pre>
+                                  status = {props.status}
+                                  {/*   <Switch onChange={handleChange} checked={va} /> */}
                               </div>
                               <ul class="list-inline">
                                 <h6 class="mt-1"><strong>Tags :</strong> 

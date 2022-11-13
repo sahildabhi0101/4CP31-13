@@ -110,6 +110,7 @@ const MyProblems = () => {
                     problem.problem_id != null ?
                     <ProjectCard
                       key={index}
+                      status={problem.problem_id.status}
                       problem_id={problem.problem_id._id}
                       problem_title={problem.problem_id.problem_title}
                       problem_desc={problem.problem_id.problem_desc}
@@ -125,6 +126,7 @@ const MyProblems = () => {
                             problem.problem_id != null ?
                                 <ProblemCard
                                     key={index}
+                                    status={problem.problem_id.status}
                                     problem_id={problem.problem_id._id}
                                     problem_title={problem.problem_id.problem_title}
                                     problem_desc={problem.problem_id.problem_desc}

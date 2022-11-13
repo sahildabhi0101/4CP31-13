@@ -9,7 +9,7 @@ import axios from 'axios';
 var tpage = 1;
 const fetchProjects = async (pageNumber, limit = 4) => {
   const get_stories = await axios.get(`/api/project/projectbypage?page=${pageNumber}&&limit=${limit}`)
-  // console.log(get_stories.data.projectWithStudent)
+  console.log(get_stories.data.projectWithStudent)
   tpage = get_stories.data.totalPage
   return get_stories.data.projectWithStudent;
 }
@@ -79,6 +79,7 @@ export const DisplayAllProjects = () => {
                         project_desc={project.project_desc}
                         students={project.student}
                         tags={project.tags}
+                        status={project.status}
                         img={project.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.image[0].url}
                       />
                     // {/* </Link> */}

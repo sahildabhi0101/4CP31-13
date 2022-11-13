@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ProjectCard } from './ProjectCard';
 import axios from 'axios';
+import Switch from "react-switch";
 import Navbar from '../../Navbar'
 import Footer from '../../Footer'
 
@@ -9,7 +10,7 @@ export const MyProjects = () => {
   const fetchProjects = async () => {
     const url = `/api/project/allstudentprojects`;
     const response = await axios.get(url);
-    // console.log(response.data.userdata)
+    console.log(response.data.userdata)
     setProjects(response.data.userdata)
   }
   const onDelete = async (id) => {
@@ -75,6 +76,7 @@ export const MyProjects = () => {
                           project.project_id != null ?
                             <ProjectCard
                               key={index}
+                              status={project.project_id.status}
                               project_id={project.project_id._id}
                               project_title={project.project_id.project_title}
                               project_desc={project.project_id.project_desc}
@@ -83,6 +85,7 @@ export const MyProjects = () => {
                               img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
                               user={'student'}
                               onDelete={onDelete}
+                              
                             /> : ''
                         ))
                         :
@@ -92,6 +95,7 @@ export const MyProjects = () => {
                             project.project_id != null ?
                               <ProjectCard
                                 key={index}
+                                status={project.project_id.status}
                                 project_id={project.project_id._id}
                                 project_title={project.project_id.project_title}
                                 project_desc={project.project_id.project_desc}

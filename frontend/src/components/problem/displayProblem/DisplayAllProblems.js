@@ -59,6 +59,7 @@ const DisplayAllProblems = () => {
               // <Link to={`/project/${project._id}`}>
                 <ProblemCard
                   key={index}
+                  status={problem.status}
                   problem_title={problem.problem_title}
                   problem_desc={problem.problem_desc}
                   students={problem.student}
@@ -73,6 +74,7 @@ const DisplayAllProblems = () => {
               // <Link to={`/project/${project._id}`}>
                 <ProblemCard
                   key={index}
+                  status={problem.status}
                   problem_title={problem.problem_title}
                   problem_desc={problem.problem_desc}
                   students={problem.student}

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getCookie } from "react-use-cookie";
 import { useState, useEffect } from "react";
 import { TagInput } from 'evergreen-ui'
+import Switch from "react-switch";
 
 import {UpdateStudentProject } from "../../../API/ProjectAPI";
 import "./updateProject.css";
@@ -18,6 +19,10 @@ const initialValues = {
 
 
 export default function UpdateProject() {
+  const handleChange = () => {
+    setva(!va)
+
+  }
   const { project_id } = useParams();
   const navigate = useNavigate();
   const [token, setToken] = useState("");
@@ -27,6 +32,8 @@ export default function UpdateProject() {
   })
   const [tag, setTags] = useState([]);
   const [photo,setPhoto] = React.useState("");
+  const [va,setva] = useState(true);
+
   useEffect(() => {
     fetchProject();
     console.log("token-", token);
@@ -45,6 +52,7 @@ export default function UpdateProject() {
     // console.log('project', initialValues.project_title, initialValues.project_desc, initialValues.tags)
     setTags(project.data.userdata.project_id.tags)
     setPhoto(project.data.userdata.project_id.image[0].url)
+    setva(project.data.userdata.project_id.status)
   }
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -75,7 +83,13 @@ export default function UpdateProject() {
       body: data
     })
     const file = await res.json();
-
+    let status
+    if(va === true){
+      status = 'active'
+    }
+    else{
+      status = 'inactive'
+    }
     const updateData = {
       project_title: initialValues.project_title,
       project_desc: initialValues.project_desc,
@@ -84,6 +98,7 @@ export default function UpdateProject() {
         url: file.url,
         public_id: file.public_id
       },
+      status: status
     };
     console.log("update",updateData)
     const isUpdate = await UpdateStudentProject(project_id, updateData)
@@ -135,6 +150,7 @@ export default function UpdateProject() {
                   values={tag}
                 />
               </div>
+              <Switch onChange={handleChange} checked={va} />
               <div className="btn-grounp">
                   <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">UPDATE PROJECT</button>
                 </div>
