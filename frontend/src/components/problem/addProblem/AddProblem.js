@@ -75,7 +75,7 @@ export default function AddProblem() {
       problem_id,
       token,
     });
-
+    navigate('/display-problems')
     console.log(agencyProblemAdded);
 
     if (!problemAdded || !agencyProblemAdded) {

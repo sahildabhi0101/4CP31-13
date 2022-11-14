@@ -55,6 +55,7 @@ export const CategoryProblems = () => {
                 // <Link to={`/project/${project._id}`}>
                   <ProblemCardAll
                     key={index}
+                    status={problem.status}
                     problem_id={problem._id}
                     problem_title={problem.problem_title}
                     problem_desc={problem.problem_desc}

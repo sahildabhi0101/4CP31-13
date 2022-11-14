@@ -9,7 +9,7 @@ export const ProblemCardAll = (props) => {
         <div class="ad-listing-list mt-20">
         <div class="row p-lg-3 p-sm-5 p-4">
           <div class="col-lg-3 align-self-center">
-                  <img src={props.img} alt="Problem Img" class="img-fluid img-thumbnail rounded mx-auto d-block"/>
+                  <img width="80px" height="auto" src={props.img} alt="Problem Img" class="img-fluid img-thumbnail rounded mx-auto d-block"/>
           </div>
           <div class="col-lg-8">
               <div class="row">
