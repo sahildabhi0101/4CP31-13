@@ -57,7 +57,7 @@ const ProblemCard = (props) => {
               <div class="col-lg-3 align-self-center">
                       <img style={{maxWidth:"100%",maxWidth:"100%",alignItems:"center"}} height="auto" src={props.img} alt="Problem" class="img-fluid img-thumbnail mx-auto d-block"/>
               </div>
-              <div class="col-lg-9">
+              <div class="col-lg-8">
                   <div class="row">
                       <div class="col-lg-9 col-md-10">
                           <div class="ad-listing-content">

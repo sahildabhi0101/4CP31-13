@@ -5,6 +5,7 @@ import { useQuery } from 'react-query'
 import Navbar from '../../Navbar'
 import Footer from '../../Footer'
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 var tpage = 1;
 const fetchProjects = async (pageNumber, limit = 4) => {
@@ -15,6 +16,11 @@ const fetchProjects = async (pageNumber, limit = 4) => {
 }
 
 export const DisplayAllProjects = () => {
+  let navigate = useNavigate();
+  const handleClick = (Cat) => {
+    const path = '/categorywiseProject'
+    navigate(path, { state: { id: 1, category: Cat } })
+}
 
   const [pageNumber, setPageNumber] = useState(1)
   const { isLoading, isError, error, data, isFetching } = useQuery(
@@ -60,11 +66,15 @@ export const DisplayAllProjects = () => {
               <div class="category-sidebar ">
                 <div class="widget category-list border border-dark">
                   <h4 class="widget-header">All Category</h4>
-                    <ul class="category-list">
-                      <li><a href="category.html">Laptops <span>93</span></a></li>
-                      <li><a href="category.html">Iphone <span>233</span></a></li>
-                      <li><a href="category.html">Microsoft  <span>183</span></a></li>
-                      <li><a href="category.html">Monitors <span>343</span></a></li>
+                    <ul class="category-list" style={{cursor:'pointer'}}>
+                      <li><a onClick={() => handleClick('MERN Stack')}>Mern Stack </a></li>
+                      <li><a onClick={() => handleClick('Blockchain')} >BlockChain </a></li>
+                      <li><a onClick={() => handleClick('AR/VR')} >AR/VR </a></li>
+                      <li><a onClick={() => handleClick('Machine Learning')} >Machine Learning </a></li>
+                      <li><a onClick={() => handleClick('DotNet')}>DotNet </a></li>
+                      <li><a onClick={() => handleClick('Cloud')} >Cloud </a></li>
+                      <li><a onClick={() => handleClick('Python')} >Python </a></li>
+                      <li><a onClick={() => handleClick('React')} >React </a></li>
                     </ul>
                 </div>
               </div>
