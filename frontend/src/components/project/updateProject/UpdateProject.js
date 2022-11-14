@@ -104,7 +104,7 @@ export default function UpdateProject() {
     console.log("update",updateData)
     const isUpdate = await UpdateStudentProject(project_id, updateData)
     console.log(isUpdate)
-    if (isUpdate.statusCode === 200) alert('Updated successfully')
+    if (isUpdate.statusCode === 200) { alert('Updated successfully');  navigate(`/project/${project_id}`); }
     else alert('Not updated')
   };
 

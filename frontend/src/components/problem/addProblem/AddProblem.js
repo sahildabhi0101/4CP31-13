@@ -67,23 +67,23 @@ export default function AddProblem() {
     const problemAdded = await AddProblemAPI(body);
    
     console.log(problemAdded)
-    // const problem_id = problemAdded.savedProblem._id;
+    const problem_id = problemAdded.savedProblem._id;
 
-    // console.log("token:---", token);
-    // console.log("problem_id:---", problem_id);
-    // const agencyProblemAdded = await AddAgencyProblemAPI({
-    //   problem_id,
-    //   token,
-    // });
+    console.log("token:---", token);
+    console.log("problem_id:---", problem_id);
+    const agencyProblemAdded = await AddAgencyProblemAPI({
+      problem_id,
+      token,
+    });
 
-    // console.log(agencyProblemAdded);
+    console.log(agencyProblemAdded);
 
-    // if (!problemAdded || !agencyProblemAdded) {
-    //   alert("Something went wrong!");
-    // } else {
-    //   // To redirect writtern blog
-    //   // navigate(`/project/${project_id}`);
-    // }
+    if (!problemAdded || !agencyProblemAdded) {
+      alert("Something went wrong!");
+    } else {
+      // To redirect writtern blog
+      navigate(`/project/${problem_id}`);
+    }
   };
 
   return (
