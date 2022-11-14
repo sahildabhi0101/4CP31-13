@@ -23,19 +23,19 @@ const Categories = () => {
                             <div className="col-12">
                                 {/* <!-- Section title --> */}
                                 <div className="section-title">
-                                    <h2>Project Categories</h2>
+                                    <h2>Categories</h2>
                                 </div>
                                 <div className="row">
                                     {/* <!-- Category list --> */}
 
-                                    <CategoryCard  cat='mern'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='blockchain'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='MERN Stack'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Blockchain'/>
                                     <CategoryCard onClick={() => handleClick('html')} cat='AR/VR'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='machine Learning'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='dotNet'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='cloud'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='python'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='react'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Machine Learning'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='DotNet'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Cloud'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='Python'/>
+                                    <CategoryCard onClick={() => handleClick('html')} cat='React'/>
 
                         </div>
                     </div>

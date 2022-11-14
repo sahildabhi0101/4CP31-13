@@ -28,10 +28,10 @@ const LatestProjects = () => {
                                 <div className="row">
                                     {/* <!-- Category list --> */}
 
-                                    <ProblemCategoryCard cat='PVTLTD'/>
-                                    <ProblemCategoryCard cat='trafficManagement'/>
-                                    <ProblemCategoryCard cat='gov'/>
-                                    <ProblemCategoryCard cat='hiringPortal'/>
+                                    <ProblemCategoryCard cat='PVTLTD' name='Pvt_Ltd'/>
+                                    <ProblemCategoryCard cat='trafficManagement' name="Traffic_Management"/>
+                                    <ProblemCategoryCard cat='gov' name='Government'/>
+                                    <ProblemCategoryCard cat='hiringPortal' name='Hiring_Portal'/>
 
                         </div>
                     </div>

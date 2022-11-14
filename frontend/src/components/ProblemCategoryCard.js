@@ -35,11 +35,11 @@ const ProblemCategoryCard = (props) => {
     console.log("len=", len)
     useEffect(() => { filterFunction() })
     return (
-        <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={() => handleClick(props.cat)}>
+        <div className="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6" onClick={() => handleClick(props.cat)} style={{cursor:"pointer"}}>
             <div className="category-block">
                 <div className="header">
                     <i className={str}></i>
-                    <h4>{props.cat}</h4>
+                    <h4>{props.name}</h4>
                 </div>
                 <ul className="category-list">
                     <li>Total Problems: <span>{len}</span></li>
