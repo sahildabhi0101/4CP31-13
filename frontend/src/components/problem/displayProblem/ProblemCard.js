@@ -55,7 +55,7 @@ const ProblemCard = (props) => {
         <div class="ad-listing-list mt-20">
             <div class="row p-lg-3 p-sm-5 p-4">
               <div class="col-lg-3 align-self-center">
-                      <img width="80px" height="auto" src={props.img} alt="Project"/>
+                      <img width="80px" height="auto" src={props.img} alt="Problem"/>
               </div>
               <div class="col-lg-9">
                   <div class="row">

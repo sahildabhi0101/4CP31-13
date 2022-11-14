@@ -10,15 +10,17 @@ export default function SingleProject() {
     const { project_id } = useParams();
     const [data, setData] = useState("");
     const [category,setCategory] = useState('product_details');
+	const [tags,setTags] = useState([]);
 	useEffect(()=>{},[category])
 
     async function fetchMyAPI() {
       const res = await GetProjectAPI({ project_id });
       setData(res);
       console.log("project_id", project_id);
-      console.log(res);
+      console.log("res",res);
+	  setTags(res.project.tags)
     }
-  
+	
     useEffect(() => {
       fetchMyAPI();
     }, []);
@@ -26,6 +28,15 @@ export default function SingleProject() {
     return (
     <>
      <Navbar />
+	 <section className="page-title">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 offset-md-2 text-center">
+              <h3>Project Details</h3>
+            </div>
+          </div>
+        </div>
+      </section>
 	 <section className="section bg-gray">
 	<div className="container">
 		<div className="row">
@@ -55,7 +66,7 @@ export default function SingleProject() {
 								<a className="nav-link active">Project Details</a>
 							</li>
 							<li className="nav-item" onClick={()=>setCategory('specifications')}>
-								<a className="nav-link active" >Specifications</a>
+								<a className="nav-link active" >Tags</a>
 							</li>
 							<li className="nav-item" onClick={()=>setCategory('reviews')}>
 								<a className="nav-link active">Reviews</a>
@@ -73,7 +84,12 @@ export default function SingleProject() {
 							{
 								category==='specifications' && 
 								(<div className="tab-pane fade active show"  aria-labelledby="pills-profile-tab">
-								<h3 className="tab-title">Project Specifications</h3>
+								<h3 className="tab-title">Project Tags</h3>
+								{
+									tags.map((tag) => (
+										<p>{tag}</p>
+									))
+								}
 								</div>)
 							}
 							{

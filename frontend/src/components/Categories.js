@@ -16,14 +16,14 @@ const Categories = () => {
         navigate("/display-projects")
     }
   return (
-    <section className=" section">
+    <>
                     {/* <!-- Container Start --> */}
                     <div className="container">
                         <div className="row">
                             <div className="col-12">
                                 {/* <!-- Section title --> */}
                                 <div className="section-title">
-                                    <h2>Categories</h2>
+                                    <h2>Project Categories</h2>
                                 </div>
                                 <div className="row">
                                     {/* <!-- Category list --> */}
@@ -42,7 +42,7 @@ const Categories = () => {
                 </div>
             </div>
             {/* <!-- Container End --> */}
-        </section>
+            </>
     )
 }
 
