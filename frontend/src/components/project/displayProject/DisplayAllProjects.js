@@ -85,6 +85,7 @@ export const DisplayAllProjects = () => {
                   // <Link to={`/project/${project._id}`}>
                   <ProjectCardAll
                     key={index}
+                    status={project.status}
                     project_id={project._id}
                     project_title={project.project_title}
                     project_desc={project.project_desc}
@@ -100,9 +101,10 @@ export const DisplayAllProjects = () => {
                     // <Link to={`/project/${project._id}`}>
                     <ProjectCardAll
                       key={index}
-                      problem_id={project._id}
-                      problem_title={project.problem_title}
-                      problem_desc={project.problem_desc}
+                      status={project.status}
+                      project_id={project._id}
+                      project_title={project.project_title}
+                      project_desc={project.project_desc}
                       students={project.student}
                       tags={project.tags}
                       // img= {'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'}
