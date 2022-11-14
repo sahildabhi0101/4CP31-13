@@ -3,7 +3,7 @@ import Badge from 'react-bootstrap/Badge';
 import { Link } from 'react-router-dom';
 
 export const ProjectCardAll = (props) => {
-    // console.log(props);
+    console.log(props);
     return (
         <>
         <div class="ad-listing-list mt-20">
