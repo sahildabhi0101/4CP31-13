@@ -37,7 +37,7 @@ const CategoryCard = (props) => {
                                         <div className="category-block">
                                             <div className="header">
                                                 <i className={str}></i>
-                                                <h4>{props.cat}</h4>
+                                                <h4>{props.name}</h4>
                                             </div>
                                             <ul className="category-list">
                                                 <li>Total Projects: <span>{len}</span></li>

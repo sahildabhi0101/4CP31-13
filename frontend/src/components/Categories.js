@@ -28,14 +28,14 @@ const Categories = () => {
                                 <div className="row">
                                     {/* <!-- Category list --> */}
 
-                                    <CategoryCard onClick={() => handleClick('html')} cat='MERN Stack'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='Blockchain'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='AR/VR'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='Machine Learning'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='DotNet'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='Cloud'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='Python'/>
-                                    <CategoryCard onClick={() => handleClick('html')} cat='React'/>
+                                    <CategoryCard cat='mern' name="Mern Stack"/>
+                                    <CategoryCard cat='blockchain' name="Blockchain"/>
+                                    <CategoryCard cat='ar/vr' name="AR_VR"/>
+                                    <CategoryCard cat='machine learning' name="Machine Learning"/>
+                                    <CategoryCard cat='dotNet' name=".net"/>
+                                    <CategoryCard cat='cloud' name="Cloud"/>
+                                    <CategoryCard cat='python' name="Python"/>
+                                    <CategoryCard cat='react' name="React"/>
 
                         </div>
                     </div>
