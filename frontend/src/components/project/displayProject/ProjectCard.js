@@ -10,7 +10,7 @@ export const ProjectCard = (props) => {
           <div class="ad-listing-list mt-20">
             <div class="row p-lg-3 p-sm-5 p-4">
               <div class="col-lg-3 align-self-center">
-                      <img width="80px" height="auto" src={props.img} alt="Project"/>
+                      <img style={{maxWidth:"100%",maxWidth:"100%",alignItems:"center"}} height="auto" src={props.img} alt="Project" class="img-fluid img-thumbnail mx-auto d-block"/>
               </div>
               <div class="col-lg-9">
                   <div class="row">
@@ -30,16 +30,16 @@ export const ProjectCard = (props) => {
                                 }
                                 </h6>
                               </ul>
-                              <h6 class="inline-block"><strong>Description :</strong><p class="pr-15">{props.project_desc}</p></h6>
+                              <h6 class="inline-block"><strong>Description :</strong><p class="pr-15" style={{lineHeight:"1.2em",height:"3.6em",overflowX:"hidden",overflowY:"hidden"}}>{props.project_desc}</p></h6>
                           </div>
                       </div>
                           {props.user === 'student' ?
-                            <div class="col-lg-3 align-self-center">
+                            <div class="col-lg-3 align-self-center user">
                             <div class="product-ratings float-lg-right pb-3">
                                 <ul class="list-inline">
-                                    <li class="list-inline-item selected"><Link to={`/project/${props.project_id}`}><i className="fa fa-eye"></i></Link></li>
-                                    <li class="list-inline-item selected"><Link to={`/updateproject/${props.project_id}`}><i className="fa fa-pencil"></i></Link></li>
-                                    <li class="list-inline-item selected"> <button style={{border:"none",backgroundColor: "Transparent"}}  onClick={() => props.onDelete(props.project_id)}><i className="fa fa-trash"></i>
+                                    <li class="btn btn-primary list-inline-item selected">View<Link to={`/project/${props.project_id}`}></Link></li><br></br>
+                                    <li class="btn btn-primary list-inline-item selected mt-1">Edit<Link to={`/updateproject/${props.project_id}`}></Link></li>
+                                    <li class="btn btn-primary list-inline-item selected mt-1">Delete <button style={{border:"none",backgroundColor: "Transparent",width:"0px"}}  onClick={() => props.onDelete(props.project_id)}>
                                   </button> </li>
                                 </ul>
                             </div>

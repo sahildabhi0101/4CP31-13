@@ -142,7 +142,7 @@ export default function AddProject() {
                 <textarea name="project_desc" className="border w-100 p-3 mt-3 mt-lg-4" placeholder="Description *" type="text" onChange={handleInput} value={initialValues.project_desc} />
                 </div>
                 <div className="btn-grounp">
-                  <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2 float-right">ADD PROJECT</button>
+                  <button type="submit" onClick={onSubmit} className="btn btn-primary mt-2">ADD PROJECT</button>
                 </div>
                 </div>
                 </div>

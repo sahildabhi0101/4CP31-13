@@ -58,10 +58,10 @@ const Navbar = () => {
 										<Link className="nav-link" to={"/display-problems"}>Problems</Link>
 										</li>
 										<li className="nav-item">
-											<a className="nav-link" href="about-us">About Us</a>
+											<Link className="nav-link" to={"/about-us"}>About Us</Link>
 										</li>
 										<li className="nav-item">
-											<a className="nav-link" href="contact-us">Contact Us</a>
+											<Link className="nav-link" to={"/contact-us"}>Contact Us</Link>
 										</li>
 									</ul>
 

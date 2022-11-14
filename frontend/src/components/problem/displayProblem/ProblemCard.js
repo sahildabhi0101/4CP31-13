@@ -55,7 +55,7 @@ const ProblemCard = (props) => {
         <div class="ad-listing-list mt-20">
             <div class="row p-lg-3 p-sm-5 p-4">
               <div class="col-lg-3 align-self-center">
-                      <img width="80px" height="auto" src={props.img} alt="Problem"/>
+                      <img style={{maxWidth:"100%",maxWidth:"100%",alignItems:"center"}} height="auto" src={props.img} alt="Problem" class="img-fluid img-thumbnail mx-auto d-block"/>
               </div>
               <div class="col-lg-9">
                   <div class="row">
@@ -74,30 +74,21 @@ const ProblemCard = (props) => {
                                 }
                                 </h6>
                               </ul>
-                              <h6 class="inline-block"><strong>Description :</strong><p class="pr-15">{props.problem_desc}</p></h6>
+                              <h6 class="inline-block"><strong>Description :</strong><p class="pr-15" style={{lineHeight:"1.2em",height:"3.6em",overflowX:"hidden",overflowY:"hidden"}}>{props.problem_desc}</p></h6>
                           </div>
                       </div>
                           {props.user === 'agency' ?
                             <div class=" action col-lg-3 align-self-center">
                             <div class="product-ratings float-lg-right pb-3">
-                            <ul class="list-inline justify-content-center">
-                                                <li class="list-inline-item ml-1">
-                                                    <a data-toggle="tooltip" data-placement="top" title="view" class="view" href="category.html">
-                                                    <Link to={`/problem/${props.problem_id}`}><i class="fa fa-eye"></i></Link>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item ml-1">
-                                                    <a class="edit" data-toggle="tooltip" data-placement="top" title="Edit" href="dashboard.html">
-                                                    <Link to={`/updateproblem/${props.problem_id}`}><i class="fa fa-pencil"></i></Link>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item ml-1">
-                                                    <a className="delete" data-toggle="tooltip" data-placement="top" title="Delete" href="/#">
-                                                    <button style={{border:"none",backgroundColor: "Transparent"}}  onClick={() => props.onDelete(props.problem_id)}><i class="fa fa-trash"></i>
-                                                    </button> 
-                                                    </a>
-                                                </li>
-                                                </ul>
+                            
+
+
+                            <ul class="list-inline">
+                                    <li class="btn btn-primary list-inline-item selected">View<Link to={`/problem/${props.problem_id}`}></Link></li><br></br>
+                                    <li class="btn btn-primary list-inline-item selected mt-1">Edit<Link to={`/updateproject/${props.problem_id}`}></Link></li>
+                                    <li class="btn btn-primary list-inline-item selected mt-1">Delete <button style={{border:"none",backgroundColor: "Transparent",width:"0px"}}  onClick={() => props.onDelete(props.problem_id)}>
+                                  </button> </li>
+                                </ul>
                             </div>
                         </div>
                           : ''

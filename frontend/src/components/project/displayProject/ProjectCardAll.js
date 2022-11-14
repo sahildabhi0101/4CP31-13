@@ -9,7 +9,7 @@ export const ProjectCardAll = (props) => {
         <div class="ad-listing-list mt-20">
         <div class="row p-lg-3 p-sm-5 p-4">
           <div class="col-lg-3 align-self-center">
-                  <img src={props.img} alt="Project" class="img-fluid img-thumbnail rounded mx-auto d-block"/>
+                  <img src={props.img} alt="Project" style={{maxWidth:"100%",maxWidth:"100%",alignItems:"center"}} class="img-fluid img-thumbnail mx-auto d-block"/>
           </div>
           <div class="col-lg-8">
               <div class="row">
@@ -27,14 +27,14 @@ export const ProjectCardAll = (props) => {
                             }
                             </h6>
                           </ul>
-                          <h6 class="inline-block"><strong>Description :</strong><p class="pr-15">{props.project_desc}</p></h6>
+                          <h6 class="inline-block"><strong>Description :</strong><p class="pr-15" style={{lineHeight:"1.2em",height:"3.6em",overflowX:"hidden",overflowY:"hidden"}}>{props.project_desc}</p></h6>
                       </div>
                   </div>
                   <div class="col-lg-1 align-self-center">
                     <div class="product-ratings">
                         <ul class="list-inline ">
                             <li>View</li>
-                            <li class="list-inline-item selected"><Link to={`/project/${props.project_id}`}><i className="fa fa-eye"></i></Link></li>
+                            <li class="btn btn-primary list-inline-item selected">View<Link to={`/project/${props.project_id}`}></Link></li>
                         </ul>
                     </div>
                 </div>
