@@ -26,6 +26,15 @@ export default function SingleProject() {
     return (
     <>
      <Navbar />
+	 <section className="page-title">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 offset-md-2 text-center">
+              <h3>Project Details</h3>
+            </div>
+          </div>
+        </div>
+      </section>
 	 <section className="section bg-gray">
 	<div className="container">
 		<div className="row">
@@ -55,7 +64,7 @@ export default function SingleProject() {
 								<a className="nav-link active">Project Details</a>
 							</li>
 							<li className="nav-item" onClick={()=>setCategory('specifications')}>
-								<a className="nav-link active" >Specifications</a>
+								<a className="nav-link active" >Tags</a>
 							</li>
 							<li className="nav-item" onClick={()=>setCategory('reviews')}>
 								<a className="nav-link active">Reviews</a>
@@ -73,7 +82,7 @@ export default function SingleProject() {
 							{
 								category==='specifications' && 
 								(<div className="tab-pane fade active show"  aria-labelledby="pills-profile-tab">
-								<h3 className="tab-title">Project Specifications</h3>
+								<h3 className="tab-title">Project Tags</h3>
 								</div>)
 							}
 							{

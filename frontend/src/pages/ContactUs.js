@@ -22,7 +22,7 @@ const ContactUs = () => {
                                 <div className="contact-us-content p-4">
                                     <h5>Contact Us</h5>
                                     <h1 className="pt-3">Hello, what's on your mind?</h1>
-                                    <p className="pt-3 pb-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elit dolor, blandit vel euismod ac, lentesque et dolor. Ut id tempus ipsum.</p>
+                                    <p className="pt-3 pb-5">Feel free to contact us.</p>
                                 </div>
                             </div>
                             <div className="col-md-6">

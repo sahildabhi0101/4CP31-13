@@ -25,6 +25,15 @@ export default function SingleProblem() {
     return (
     <>
      <Navbar/>
+	 <section className="page-title">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 offset-md-2 text-center">
+              <h3>Problems Details</h3>
+            </div>
+          </div>
+        </div>
+      </section>
 	 	<section className="section bg-gray">
 			<div className="container">
 				<div className="row">
@@ -54,7 +63,7 @@ export default function SingleProblem() {
 										<a className="nav-link active">Project Details</a>
 									</li>
 									<li className="nav-item" onClick={()=>setCategory('specifications')}>
-										<a className="nav-link active" >Specifications</a>
+										<a className="nav-link active" >Tags</a>
 									</li>
 									<li className="nav-item" onClick={()=>setCategory('reviews')}>
 										<a className="nav-link active">Reviews</a>
@@ -65,48 +74,17 @@ export default function SingleProblem() {
 								{
 										category==='product_details' && 
 										(<div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-										<h3 className="tab-title">Product Description</h3>
+										<h3 className="tab-title">Problem Description</h3>
 										<p>{data ? data.problem.problem_desc : ""}?</p>
 										</div>)
 									}
 									{
 										category==='specifications' && 
 										(<div className="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-										<h3 className="tab-title">Product Specifications</h3>
+										<h3 className="tab-title">Problem Tags</h3>
 										<table className="table table-bordered product-table">
 											<tbody>
-												<tr>
-													<td>Seller Price</td>
-													<td>$450</td>
-												</tr>
-												<tr>
-													<td>Added</td>
-													<td>26th December</td>
-												</tr>
-												<tr>
-													<td>State</td>
-													<td>Dhaka</td>
-												</tr>
-												<tr>
-													<td>Brand</td>
-													<td>Apple</td>
-												</tr>
-												<tr>
-													<td>Condition</td>
-													<td>Used</td>
-												</tr>
-												<tr>
-													<td>Model</td>
-													<td>2017</td>
-												</tr>
-												<tr>
-													<td>State</td>
-													<td>Dhaka</td>
-												</tr>
-												<tr>
-													<td>Battery Life</td>
-													<td>23</td>
-												</tr>
+												
 											</tbody>
 										</table>
 									</div>)

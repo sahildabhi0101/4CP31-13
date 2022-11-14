@@ -57,21 +57,15 @@ const DisplayAllProblems = () => {
       </section>
       <div class="container mt-3">
         <div class="row">
-          <div class="col-lg-3 col-md-4 ">
-            <div class="category-sidebar ">
-              <div class="widget category-list border border-dark">
-                <h4 class="widget-header">All Category</h4>
-                <ul class="category-list">
-                  <li><a href="category.html">Laptops <span>93</span></a></li>
-                  <li><a href="category.html">Iphone <span>233</span></a></li>
-                  <li><a href="category.html">Microsoft  <span>183</span></a></li>
-                  <li><a href="category.html">Monitors <span>343</span></a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-9 col-md-8 border border-light">
+          <div class="col-lg-12 col-md-8 border border-light">
+          <div class="category-search-filter">
+          <div class="row">
+						<div class="col-md-6 text-center text-md-left">
+            <strong>Search By Tags: </strong>
             <input type="text" style={{ border: "2px solid black" }} onChange={(e) => { setSearchValue(e.target.value) }} placeholder="Search via TAGS" />
+            </div>
+            </div>
+            </div>
             {
               searchValue !== ""
                 ?

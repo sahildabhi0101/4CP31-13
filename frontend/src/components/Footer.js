@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -16,43 +17,50 @@ const Footer = () => {
                         </div>
                     </div>
                     {/* <!-- Link list --> */}
-                    <div className="col-lg-2 offset-lg-1 col-md-3 col-6 mb-4 mb-lg-0">
+                    <div className="col-lg-0 offset-lg-1 col-md-3 col-6 mb-4 mb-lg-0">
                         <div className="block">
-                        <h4>Site Pages</h4>
-                        <ul>
-                            <li><a href="dashboard-my-ads.html">My Ads</a></li>
-                            <li><a href="dashboard-favourite-ads.html">Favourite Ads</a></li>
-                            <li><a href="dashboard-archived-ads.html">Archived Ads</a></li>
-                            <li><a href="dashboard-pending-ads.html">Pending Ads</a></li>
-                            <li><a href="terms-condition.html">Terms & Conditions</a></li>
-                        </ul>
+                        
                         </div>
                     </div>
                     {/*  <!-- Link list --> */}
-                    <div className="col-lg-2 col-md-3 offset-md-1 offset-lg-0 col-6 mb-4 mb-md-0">
-                        <div className="block">
-                        <h4>Admin Pages</h4>
-                        <ul>
-                            <li><a href="category.html">Category</a></li>
-                            <li><a href="single.html">Single Page</a></li>
-                            <li><a href="store.html">Store Single</a></li>
-                            <li><a href="single-blog.html">Single Post</a>
-                            </li>
-                            <li><a href="blog.html">Blog</a></li>
+                    
+                    
+                    {/* <!-- Promotion --> */}
+                    <div class="col-lg-4 col-md-7">
+                        <div class="block-2 app-promotion">
+                        <div class="mobile d-flex  align-items-center">
 
+                            <p class="mb-0"><Link className="nav-link" to={"/display-projects"}>Projects</Link></p>
+                            <p class="mb-0"><Link className="nav-link" to={"/display-problems"}>Problems</Link></p>
+                            <p class="mb-0"><a className="nav-link" href="about-us">About Us</a></p>
+                            <p class="mb-0"><a className="nav-link" href="contact-us">Contact Us</a></p>
+                        </div>
 
-
-                        </ul>
                         </div>
                     </div>
-                    {/* <!-- Promotion --> */}
-                    
                     </div>
                 </div>
                 {/* <!-- Container End --> */}
                 </footer>
 {/* <!-- Footer Bottom --> */}
                 <footer className="footer-bottom">
+                <div class="container">
+    <div class="row">
+      <div class="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
+        <div class="copyright">
+          <p>Developed@  <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>Thanks to ThemeFisher Community <a class="text-white" href=""></a></p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <ul class="social-media-icons text-center text-lg-right">
+
+        </ul>
+      </div>
+    </div>
+  </div>
                 {/* <!-- Container Start --> */}
                 
                 {/*   <!-- Container End -->
