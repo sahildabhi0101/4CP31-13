@@ -10,15 +10,17 @@ export default function SingleProject() {
     const { project_id } = useParams();
     const [data, setData] = useState("");
     const [category,setCategory] = useState('product_details');
+	const [tags,setTags] = useState([]);
 	useEffect(()=>{},[category])
 
     async function fetchMyAPI() {
       const res = await GetProjectAPI({ project_id });
       setData(res);
       console.log("project_id", project_id);
-      console.log(res);
+      console.log("res",res);
+	  setTags(res.project.tags)
     }
-  
+	
     useEffect(() => {
       fetchMyAPI();
     }, []);
@@ -83,6 +85,11 @@ export default function SingleProject() {
 								category==='specifications' && 
 								(<div className="tab-pane fade active show"  aria-labelledby="pills-profile-tab">
 								<h3 className="tab-title">Project Tags</h3>
+								{
+									tags.map((tag) => (
+										<p>{tag}</p>
+									))
+								}
 								</div>)
 							}
 							{

@@ -8,6 +8,7 @@ import { GetProblemAPI } from "../../../API/ProblemAPI";
 export default function SingleProblem() {
     const { problem_id } = useParams();
     const [data, setData] = useState("");
+	const [tags,setTags] = useState([]);
     const [category,setCategory] = useState('product_details');
 	useEffect(()=>{},[category])
 
@@ -16,6 +17,7 @@ export default function SingleProblem() {
       setData(res);
       console.log("problem_id", problem_id);
       console.log(res);
+	  setTags(res.problem.tags)
     }
   
     useEffect(() => {
@@ -82,11 +84,11 @@ export default function SingleProblem() {
 										category==='specifications' && 
 										(<div className="tab-pane fade active show" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 										<h3 className="tab-title">Problem Tags</h3>
-										<table className="table table-bordered product-table">
-											<tbody>
-												
-											</tbody>
-										</table>
+										{
+										tags.map((tag) => (
+											<p>{tag}</p>
+										))
+								}
 									</div>)
 									}
 									{
