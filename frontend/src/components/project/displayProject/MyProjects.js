@@ -37,80 +37,68 @@ export const MyProjects = () => {
     <>
       <Navbar />
       <section className="page-title">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8 offset-md-2 text-center">
-            <h3>My Projects</h3>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 offset-md-2 text-center">
+              <h3>My Projects</h3>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <div class="container mt-3">
-          <div class="row">
-            <div class="col-lg-3 col-md-4 ">
-              <div class="category-sidebar ">
-                <div class="widget category-list border border-dark">
-                  <h4 class="widget-header">All Category</h4>
-                    <ul class="category-list">
-                      <li><a href="category.html">Laptops <span>93</span></a></li>
-                      <li><a href="category.html">Iphone <span>233</span></a></li>
-                      <li><a href="category.html">Microsoft  <span>183</span></a></li>
-                      <li><a href="category.html">Monitors <span>343</span></a></li>
-                    </ul>
+      </section>
+      <div class="container mt-3">
+        <div class="row">
+
+          <div class="col-lg-12 col-md-8 border border-light">
+            <div class="category-search-filter">
+              <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                  <strong>Search By Tags: </strong>
+                  <input type="text" style={{ border: "2px solid black" }} onChange={(e) => { setsearchValue(e.target.value) }} placeholder="Tags" />
                 </div>
               </div>
             </div>
-            <div class="col-lg-9 col-md-8 border border-light">
-            <div class="category-search-filter">
-					<div class="row">
-						<div class="col-md-6 text-center text-md-left">
-							<strong>Search By Tags: </strong>
-              <input type="text" style={{ border: "2px solid black" }} onChange={(e) => { setsearchValue(e.target.value) }} placeholder="Tags" />
-						</div>
-					</div>
-				</div>
-                    {
-                      searchValue !== ""
-                        ?
-                        filteredData.map((project, index) => (
-                          project.project_id != null ?
-                            <ProjectCard
-                              key={index}
-                              status={project.project_id.status}
-                              project_id={project.project_id._id}
-                              project_title={project.project_id.project_title}
-                              project_desc={project.project_id.project_desc}
-                              // students={project.student}
-                              tags={project.project_id.tags}
-                              img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
-                              user={'student'}
-                              onDelete={onDelete}
-                              
-                            /> : ''
-                        ))
-                        :
+            {
+              searchValue !== ""
+                ?
+                filteredData.map((project, index) => (
+                  project.project_id != null ?
+                    <ProjectCard
+                      key={index}
+                      status={project.project_id.status}
+                      project_id={project.project_id._id}
+                      project_title={project.project_id.project_title}
+                      project_desc={project.project_id.project_desc}
+                      // students={project.student}
+                      tags={project.project_id.tags}
+                      img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
+                      user={'student'}
+                      onDelete={onDelete}
 
-                        projects ?
-                          projects.map((project, index) => (
-                            project.project_id != null ?
-                              <ProjectCard
-                                key={index}
-                                status={project.project_id.status}
-                                project_id={project.project_id._id}
-                                project_title={project.project_id.project_title}
-                                project_desc={project.project_id.project_desc}
-                                // students={project.student_id}    //remaining to make api
-                                tags={project.project_id.tags}
-                                img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
-                                user={'student'}
-                                onDelete={onDelete}
-                              /> : ''
-                          )) : ""
-                    }
+                    /> : ''
+                ))
+                :
+
+                projects ?
+                  projects.map((project, index) => (
+                    project.project_id != null ?
+                      <ProjectCard
+                        key={index}
+                        status={project.project_id.status}
+                        project_id={project.project_id._id}
+                        project_title={project.project_id.project_title}
+                        project_desc={project.project_id.project_desc}
+                        // students={project.student_id}    //remaining to make api
+                        tags={project.project_id.tags}
+                        img={project.project_id.image[0].url === "" ? 'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ' : project.project_id.image[0].url}
+                        user={'student'}
+                        onDelete={onDelete}
+                      /> : ''
+                  )) : ""
+            }
 
 
-              </div>
-              {/* <div class="pagination justify-content-center">
+          </div>
+          {/* <div class="pagination justify-content-center">
           <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item">
@@ -131,8 +119,8 @@ export const MyProjects = () => {
             </ul>
           </nav>
         </div> */}
-          </div>
         </div>
+      </div>
       <Footer />
     </>
   );

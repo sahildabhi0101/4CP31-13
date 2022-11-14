@@ -67,14 +67,14 @@ export const DisplayAllProjects = () => {
                 <div class="widget category-list border border-dark">
                   <h4 class="widget-header">All Category</h4>
                     <ul class="category-list" style={{cursor:'pointer'}}>
-                      <li><a onClick={() => handleClick('MERN Stack')}>Mern Stack </a></li>
-                      <li><a onClick={() => handleClick('Blockchain')} >BlockChain </a></li>
-                      <li><a onClick={() => handleClick('AR/VR')} >AR/VR </a></li>
-                      <li><a onClick={() => handleClick('Machine Learning')} >Machine Learning </a></li>
-                      <li><a onClick={() => handleClick('DotNet')}>DotNet </a></li>
-                      <li><a onClick={() => handleClick('Cloud')} >Cloud </a></li>
-                      <li><a onClick={() => handleClick('Python')} >Python </a></li>
-                      <li><a onClick={() => handleClick('React')} >React </a></li>
+                      <li><a onClick={() => handleClick('mern')}>Mern Stack </a></li>
+                      <li><a onClick={() => handleClick('blockchain')} >BlockChain </a></li>
+                      <li><a onClick={() => handleClick('ar/vr')} >AR/VR </a></li>
+                      <li><a onClick={() => handleClick('machine learning')} >Machine Learning </a></li>
+                      <li><a onClick={() => handleClick('dotNet')}>DotNet </a></li>
+                      <li><a onClick={() => handleClick('cloud')} >Cloud </a></li>
+                      <li><a onClick={() => handleClick('python')} >Python </a></li>
+                      <li><a onClick={() => handleClick('react')} >React </a></li>
                     </ul>
                 </div>
               </div>
