@@ -33,7 +33,7 @@ export const ProjectCardAll = (props) => {
                   <div class="col-lg-1 align-self-center">
                     <div class="product-ratings">
                         <ul class="list-inline ">
-                            <li class="btn btn-primary list-inline-item selected">View<Link to={`/project/${props.project_id}`}></Link></li>
+                            <li class="btn btn-primary list-inline-item selected"><Link to={`/project/${props.project_id}`}><button class="btn btn-primary">View</button></Link></li>
                         </ul>
                     </div>
                 </div>

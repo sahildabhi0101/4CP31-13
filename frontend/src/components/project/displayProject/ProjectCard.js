@@ -37,8 +37,8 @@ export const ProjectCard = (props) => {
                             <div class="col-lg-3 align-self-center user">
                             <div class="product-ratings  pb-3">
                                 <ul class="list-inline">
-                                    <li class="btn btn-primary list-inline-item selected">View<Link to={`/project/${props.project_id}`}></Link></li><br></br>
-                                    <li class="btn btn-primary list-inline-item selected mt-1">Edit<Link to={`/updateproject/${props.project_id}`}></Link></li><br></br>
+                                    <li class=" list-inline-item selected"><Link to={`/project/${props.project_id}`}><button class="btn btn-primary">View</button></Link></li><br></br>
+                                    <li class=" list-inline-item selected mt-1"><Link to={`/updateproject/${props.project_id}`}><button className="btn btn-primary">Edit</button></Link></li><br></br>
                                     <li class="btn btn-primary list-inline-item selected mt-1">Delete <button style={{border:"none",backgroundColor: "Transparent",width:"0px"}}  onClick={() => props.onDelete(props.project_id)}>
                                   </button> </li>
                                 </ul>

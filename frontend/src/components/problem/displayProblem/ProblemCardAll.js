@@ -34,7 +34,7 @@ export const ProblemCardAll = (props) => {
                   <div class="col-lg-1 align-self-center">
                     <div class="product-ratings">
                         <ul class="list-inline ">
-                            <li class="btn btn-primary list-inline-item selected">View<Link to={`/problem/${props.problem_id}`}></Link></li>
+                            <li class="list-inline-item selected"><Link to={`/problem/${props.problem_id}`}><button class="btn btn-primary">View</button></Link></li>
                         </ul>
                     </div>
                 </div>

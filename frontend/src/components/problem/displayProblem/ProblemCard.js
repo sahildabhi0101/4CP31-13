@@ -84,8 +84,8 @@ const ProblemCard = (props) => {
 
 
                             <ul class="list-inline">
-                                    <li class="btn btn-primary list-inline-item selected">View<Link to={`/problem/${props.problem_id}`}></Link></li><br></br>
-                                    <li class="btn btn-primary list-inline-item selected mt-1">Edit<Link to={`/updateproject/${props.problem_id}`}></Link></li>
+                                    <li class="list-inline-item selected"><Link to={`/problem/${props.problem_id}`}><button class="btn btn-primary">View</button></Link></li><br></br>
+                                    <li class="list-inline-item selected mt-1">Edit<Link to={`/updateproject/${props.problem_id}`}><button class="btn btn-primary">Edit</button></Link></li>
                                     <li class="btn btn-primary list-inline-item selected mt-1">Delete <button style={{border:"none",backgroundColor: "Transparent",width:"0px"}}  onClick={() => props.onDelete(props.problem_id)}>
                                   </button> </li>
                                 </ul>
